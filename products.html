@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> HardwarePasale- Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a> HardwarePasale</a></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Products Page -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Browse our extensive collection of hardware supplies</p>
+        </div>
+    </div>
+<!-- Search Section -->
+<section class="search-section">
+    <div class="container">
+        <div class="search-container">
+            <h1>Find Your Products</h1>
+            <div class="search-box">
+                <div class="search-input-container">
+                    <span class="search-icon">🔍</span>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search for products..."
+                        autocomplete="off"
+                    >
+                    <button id="clearSearch" onclick="clearSearch()" style="display: none;">✕</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+    <section class="filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                <button class="filter-btn" onclick="filterProducts('pipes')">Pipes</button>
+                <button class="filter-btn" onclick="filterProducts('door-fitting')">Bathroom/Sanitary</button>
+                <button class="filter-btn" onclick="filterProducts('paints')">Paints</button>
+                <button class="filter-btn" onclick="filterProducts('cleaning items')">Basin</button>
+                <button class="filter-btn" onclick="filterProducts('kitchen item')">Electricals</button>
+                <button class="filter-btn" onclick="filterProducts('tools')">Tools</button>
+                <button class="filter-btn" onclick="filterProducts('motor/pump')">Cement & Building</button>
+                <button class="filter-btn" onclick="filterProducts('waterproof')">Others</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-container">
+        <div class="container">
+            <div id="productsGrid" class="products-grid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>📍 123 Hardware Street, Industrial Area</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                    <p>✉️ hardwarepasale@gmail.com</p>
+                    <p>🕒 Mon-Sat: 7:00 AM - 7:00 PM</p>
+                    <p>🕒 Sunday: 9:00 AM - 5:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Categories</h3>
+                    <ul>
+                        <li>Pipes & Plumbing</li>
+                        <li>Bathroom & Sanitary</li>
+                        <li>Paints & waterproof</li>
+                        <li>Basin and Moter/pumps</li>
+                        <li>Tools & Hardware</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li>Shipping Information</li>
+                        <li>Return Policy</li>
+                        <li>Warranty Services</li>
+                        <li>Technical Support</li>
+                        <li>Bulk Order Quotes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HardwarePasale. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

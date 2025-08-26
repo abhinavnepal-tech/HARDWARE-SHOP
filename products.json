@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "PVC Pipe 4 inch",
+      "category": "pipes",
+      "price": "$12.99",
+      "description": "High-quality PVC pipe suitable for drainage and irrigation systems.",
+      "icon": "🚿"
+    },
+    {
+      "id": 2,
+      "name": "Copper Pipe 1/2 inch",
+      "category": "pipes",
+      "price": "$8.50",
+      "description": "Premium copper pipe for plumbing applications.",
+      "icon": "🔧"
+    },
+    {
+      "id": 3,
+      "name": "Steel Rebar 10mm",
+      "category": "steel",
+      "price": "$25.99",
+      "description": "High-grade steel reinforcement bars for concrete construction.",
+      "icon": "🏗️"
+    },
+    {
+      "id": 4,
+      "name": "Steel Angle Bar",
+      "category": "steel",
+      "price": "$18.75",
+      "description": "L-shaped steel bars for structural support and framing.",
+      "icon": "📐"
+    },
+    {
+      "id": 5,
+      "name": "Acrylic Wall Paint",
+      "category": "paints",
+      "price": "$45.99",
+      "description": "Premium interior wall paint with excellent coverage and durability.",
+      "icon": "🎨"
+    },
+    {
+      "id": 6,
+      "name": "Metal Primer Paint",
+      "category": "paints",
+      "price": "$32.50",
+      "description": "Anti-rust primer paint for metal surfaces.",
+      "icon": "🖌️"
+    },
+    {
+      "id": 7,
+      "name": "Ceramic Wash Basin",
+      "category": "basin",
+      "price": "$89.99",
+      "description": "Modern ceramic wash basin with sleek design.",
+      "icon": "🚰"
+    },
+    {
+      "id": 8,
+      "name": "Stainless Steel Basin",
+      "category": "basin",
+      "price": "$125.00",
+      "description": "Durable stainless steel kitchen basin with double bowl.",
+      "icon": "🥄"
+    },
+    {
+      "id": 9,
+      "name": "Electrical Wire 2.5mm",
+      "category": "electricals",
+      "price": "$1.25",
+      "description": "High-quality electrical wire suitable for household wiring.",
+      "icon": "⚡"
+    },
+    {
+      "id": 10,
+      "name": "LED Light Bulb 12W",
+      "category": "electricals",
+      "price": "$8.99",
+      "description": "Energy-efficient LED bulb with warm white light.",
+      "icon": "💡"
+    },
+    {
+      "id": 11,
+      "name": "Hammer 16oz",
+      "category": "tools",
+      "price": "$22.99",
+      "description": "Professional grade claw hammer with comfortable grip.",
+      "icon": "🔨"
+    },
+    {
+      "id": 12,
+      "name": "Electric Drill Set",
+      "category": "tools",
+      "price": "$89.99",
+      "description": "Cordless electric drill with complete bit set.",
+      "icon": "🔩"
+    },
+    {
+      "id": 13,
+      "name": "Portland Cement 50kg",
+      "category": "cement",
+      "price": "$15.99",
+      "description": "High-strength Portland cement for construction projects.",
+      "icon": "🏭"
+    },
+    {
+      "id": 14,
+      "name": "Construction Sand",
+      "category": "cement",
+      "price": "$35.00",
+      "description": "Fine construction sand suitable for concrete mixing.",
+      "icon": "⏳"
+    },
+    {
+      "id": 15,
+      "name": "Safety Helmet",
+      "category": "others",
+      "price": "$18.50",
+      "description": "High-impact safety helmet with adjustable straps.",
+      "icon": "⛑️"
+    },
+    {
+      "id": 16,
+      "name": "Work Gloves",
+      "category": "others",
+      "price": "$12.99",
+      "description": "Durable work gloves with enhanced grip and protection.",
+      "icon": "🧤"
+    },
+    {
+      "id": 17,
+      "name": "Garden Hose 50ft",
+      "category": "others",
+      "price": "$29.99",
+      "description": "Flexible garden hose with spray nozzle attachment.",
+      "icon": "🌿"
+    },
+    {
+      "id": 18,
+      "name": "Concrete Mixer",
+      "category": "cement",
+      "price": "$299.99",
+      "description": "Electric concrete mixer for medium-scale construction projects.",
+      "icon": "🔄"
+    },
+    {
+      "id": 19,
+      "name": "Screwdriver Set",
+      "category": "tools",
+      "price": "$34.50",
+      "description": "Complete screwdriver set with magnetic tips and various sizes.",
+      "icon": "🪛"
+    },
+    {
+      "id": 20,
+      "name": "Circuit Breaker",
+      "category": "electricals",
+      "price": "$45.00",
+      "description": "Safety circuit breaker for electrical panel installations.",
+      "icon": "🔌"
+    }
+  ]
+}
