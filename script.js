@@ -433,3 +433,42 @@ function showError(message) {
         `;
     }
 }
+function displayProducts(products) {
+    const grid = document.getElementById('productsGrid');
+    if (!grid) return;
+
+    grid.innerHTML = '';
+    
+    products.forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.style.animationDelay = `${index * 0.1}s`;
+        
+        // Check if it's an image file
+        const isImage = product.icon.includes('.jpeg') || 
+                       product.icon.includes('.jpg') || 
+                       product.icon.includes('.png') || 
+                       product.icon.includes('.webp');
+        
+        productCard.innerHTML = `
+            <div class="product-image">
+                ${isImage ? 
+                    `<img src="${product.icon}" alt="${product.name}" 
+                          style="width: 80%; height: 80%; object-fit: contain; border-radius: 8px;"
+                          onerror="console.log('Failed to load: ${product.icon}'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     <span style="display: none; font-size: 4rem;">📦</span>` : 
+                    `<span style="font-size: 4rem;">${product.icon}</span>`
+                }
+            </div>
+            <div class="product-info">
+                <div class="product-name">${product.name}</div>
+                <div class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
+                <div class="product-price">${product.price}</div>
+                <div class="product-description">${product.description}</div>
+            </div>
+        `;
+        grid.appendChild(productCard);
+    });
+    
+    // Rest of your function...
+}
