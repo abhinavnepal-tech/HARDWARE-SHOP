@@ -9,14 +9,7 @@
       "description": "Complete set of bathroom sanitary items including faucets and showerheads.",
       "icon": "bath-items.jpeg"
     },
-    {
-      "id": 11,
-      "name": "Basin-Sink",
-      "category": "basin",
-      "price":"",
-      "description": "Heavy-duty stainless steel basin sink for kitchen use.",
-      "icon": "basin-sinks.jpeg"
-    },
+    
     {
       "id": 13,
       "name": "Tape and Tile Adhesive",
@@ -41,14 +34,7 @@
       "description": "Heavy-duty toilet bowl cleaner with disinfectant properties.",
       "icon": "Toiletcleaner.jpeg"
     },
-    {
-      "id": 16,
-      "name": "Basin",
-      "category": "basin",
-      "price": "",
-      "description": "Durable basin for household use.",
-      "icon": "basin.jpeg"
-    },
+  
     {
       "id": 17,
       "name": "Neolina Commode",
@@ -159,14 +145,15 @@
       "description": "",
       "icon": "shower4.jpg"
     },
-     {
-      "id": 30,
-      "name": "Ultra thin SS Square Rain shower 300mm",
-      "category": "bathroom/sanitary",
-      "price":"NPR 7900",
-      "description": "",
-      "icon": "shower5.png"
-    }
+   {
+  "id": 30,
+  "name": "Ultra thin SS Square Rain shower 300mm",
+  "category": "bathroom/sanitary",
+  "price": "NPR 7900",
+  "description": "",
+  "icon": "https://drive.google.com/uc?export=view&id=1Xyz456AbCdEfGhIjKlMn"
+}
+
     ,
      {
       "id": 31,
@@ -185,5 +172,6 @@
       "description": "",
       "icon": "theme3.webp"
     }
+    
   ]
 }
