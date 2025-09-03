@@ -118,7 +118,7 @@
       "category": "bathroom/sanitary",
       "price":"NPR 35000",
       "description": "",
-      "icon": "shower1.png"
+      "icon": "shower1.jpg"
     }
     ,
      {
@@ -151,7 +151,8 @@
   "category": "bathroom/sanitary",
   "price": "NPR 7900",
   "description": "",
-  "icon": "https://drive.google.com/uc?export=view&id=1Xyz456AbCdEfGhIjKlMn"
+  "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756888500/shower5_jtspxr.png"
+
 }
 
     ,
