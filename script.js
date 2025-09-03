@@ -708,7 +708,7 @@ function handlePDFError(operation, error) {
     `;
     errorDiv.innerHTML = `
         <strong>PDF Error</strong><br>
-        Unable to ${operation} PDF. <a href="manual.pdf" target="_blank" style="color: white; text-decoration: underline;">Try opening directly</a>
+        Unable to ${operation} PDF. <a href="purja.pdf" target="_blank" style="color: white; text-decoration: underline;">Try opening directly</a>
     `;
     
     document.body.appendChild(errorDiv);
@@ -729,7 +729,7 @@ function printPDF() {
             try {
                 pdfEmbed.contentWindow.print();
             } catch (e) {
-                const printWindow = window.open('manual.pdf', '_blank');
+                const printWindow = window.open('purja.pdf', '_blank');
                 if (printWindow) {
                     printWindow.onload = function() {
                         try {
@@ -743,7 +743,7 @@ function printPDF() {
                 }
             }
         } else {
-            const printWindow = window.open('manual.pdf', '_blank');
+            const printWindow = window.open('purja.pdf', '_blank');
             if (printWindow) {
                 printWindow.onload = function() {
                     try {
