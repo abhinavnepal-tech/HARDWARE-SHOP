@@ -80,6 +80,110 @@
       "price": "",
       "description": "Effective faucet cleaner for removing limescale and grime.",
       "icon": "faucet.jpeg"
+    },
+    {
+      "id": 21,
+      "name": "Optra Counter Top Wash Basin",
+      "category": "basin",
+      "price": "NPR 10680",
+      "description": "",
+      "icon": "basin1.png"
+    },
+    
+    
+    {
+      "id": 22,
+      "name": "Cedar",
+      "category": "basin",
+      "price": "NPR 8080",
+      "description": "",
+      "icon": "basin1.jpg"
+    }
+    ,
+    {
+      "id": 23,
+      "name": "Median",
+      "category": "basin",
+      "price": "NPR 7700",
+      "description": "",
+      "icon": "basin2.jpg"
+    }
+    ,
+    {
+      "id": 24,
+      "name": "Solitaire",
+      "category": "basin",
+      "price": "NPR 5030",
+      "description": "",
+      "icon": "basin3.jpg"
+    }
+    ,
+    {
+      "id": 25,
+      "name": "Alto",
+      "category": "basin",
+      "price": "NPR 4350",
+      "description": "",
+      "icon": "basin4.jpg"
+    },
+     {
+      "id": 26,
+      "name": "4 Way Integrated Shower Console - Piano LED set",
+      "category": "bathroom/sanitary",
+      "price":"NPR 35000",
+      "description": "",
+      "icon": "shower1.png"
+    }
+    ,
+     {
+      "id": 27,
+      "name": "3 Outlet Exposed Bath Shower Mixer",
+      "category": "bathroom/sanitary",
+      "price":"NPR 28500",
+      "description": "",
+      "icon": "shower2.jpg"
+    },
+     {
+      "id": 28,
+      "name": "Exposed Rain Shower",
+      "category": "bathroom/sanitary",
+      "price":"NPR 21990",
+      "description": "",
+      "icon": "shower3.png"
+    },
+     {
+      "id": 29,
+      "name": "OH Shower 250-mm round (PGD)",
+      "category": "bathroom/sanitary",
+      "price":"NPR 11900",
+      "description": "",
+      "icon": "shower4.jpg"
+    },
+     {
+      "id": 30,
+      "name": "Ultra thin SS Square Rain shower 300mm",
+      "category": "bathroom/sanitary",
+      "price":"NPR 7900",
+      "description": "",
+      "icon": "shower5.png"
+    }
+    ,
+     {
+      "id": 31,
+      "name": "EBELLO SHOWER ENCLOSURE SET",
+      "category": "set",
+      "price":"NPR 47000",
+      "description": "",
+      "icon": "showerset.jpeg"
+    }
+    ,
+     {
+      "id": 32,
+      "name": "Roman Holiday Bathroom Theme",
+      "category": "set",
+      "price":"",
+      "description": "",
+      "icon": "theme3.webp"
     }
   ]
 }
