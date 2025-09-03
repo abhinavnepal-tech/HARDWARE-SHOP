@@ -1372,3 +1372,611 @@ footer::before {
         padding: 10px 16px;
     }
 }
+/* Premium Manual Section CSS - Add this to your existing style.css */
+
+/* Manual Section */
+.manual-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, 
+        var(--bg-secondary) 0%, 
+        var(--bg-tertiary) 50%, 
+        var(--bg-accent) 100%);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+.manual-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+        conic-gradient(from 45deg at 50% 50%, rgba(16, 185, 129, 0.1) 0deg, transparent 120deg);
+    animation: manualGlow 25s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes manualGlow {
+    0%, 100% { opacity: 1; transform: rotate(0deg) scale(1); }
+    50% { opacity: 0.8; transform: rotate(2deg) scale(1.05); }
+}
+
+.manual-content {
+    position: relative;
+    z-index: 2;
+}
+
+.manual-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.manual-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+    text-shadow: 0 8px 32px rgba(245, 158, 11, 0.4);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.2); }
+}
+
+.manual-header p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.manual-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* PDF Viewer Card */
+.manual-viewer-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-elevated);
+    border: 1px solid var(--border-secondary);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.manual-viewer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+}
+
+.manual-viewer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        var(--shadow-elevated),
+        0 0 60px rgba(245, 158, 11, 0.3);
+    border-color: var(--border-accent);
+}
+
+.manual-viewer-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.manual-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.4));
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.manual-viewer-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.manual-viewer-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.pdf-container {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 2px solid var(--border-secondary);
+    position: relative;
+    transition: var(--transition);
+}
+
+.pdf-container:hover {
+    border-color: var(--border-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.pdf-embed {
+    border-radius: var(--border-radius);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.pdf-fallback {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+}
+
+.pdf-fallback.active {
+    display: block;
+}
+
+.fallback-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.pdf-fallback h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.pdf-download-btn {
+    background: var(--gradient-premium);
+    color: var(--text-primary);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 1.5rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-premium);
+}
+
+.pdf-download-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Manual Info Card */
+.manual-info-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-secondary);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    height: fit-content;
+}
+
+.manual-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-premium);
+}
+
+.manual-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        var(--shadow-elevated),
+        var(--shadow-glow);
+    border-color: var(--border-primary);
+}
+
+.info-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.4));
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.info-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.manual-features {
+    margin-bottom: 2.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-premium);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.feature-item:hover {
+    background: var(--bg-accent);
+    transform: translateX(8px);
+    box-shadow: var(--shadow-dark);
+}
+
+.feature-item:hover::before {
+    opacity: 0.1;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    min-width: 40px;
+    text-align: center;
+    filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.3));
+    position: relative;
+    z-index: 1;
+}
+
+.feature-text {
+    position: relative;
+    z-index: 1;
+}
+
+.feature-text h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.feature-text p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.manual-actions {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn {
+    background: var(--gradient-gold);
+    color: var(--bg-primary);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.secondary-btn {
+    background: var(--bg-accent);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-secondary);
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(255,255,255,0.1) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.primary-btn:hover {
+    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.6);
+}
+
+.secondary-btn:hover {
+    background: var(--gradient-premium);
+    color: var(--text-primary);
+    border-color: var(--border-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.action-btn:hover::before {
+    opacity: 1;
+}
+
+/* Quick Links Section */
+.manual-quick-links {
+    text-align: center;
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.manual-quick-links::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.manual-quick-links > * {
+    position: relative;
+    z-index: 1;
+}
+
+.manual-quick-links h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    background: var(--gradient-premium);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-accent);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    border: 1px solid var(--border-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-premium);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.quick-link:hover {
+    color: var(--text-primary);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--border-primary);
+}
+
+.quick-link:hover::before {
+    opacity: 0.1;
+}
+
+.link-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.3));
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+}
+
+.quick-link:hover .link-icon {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 8px 20px rgba(99, 102, 241, 0.5));
+}
+
+.quick-link span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Design for Manual Section */
+@media (max-width: 1024px) {
+    .manual-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .pdf-container {
+        height: 500px;
+    }
+    
+    .pdf-embed {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .manual-section {
+        padding: 80px 0;
+    }
+    
+    .manual-header h2 {
+        font-size: 2.25rem;
+    }
+    
+    .manual-header p {
+        font-size: 1.125rem;
+    }
+    
+    .manual-viewer-card,
+    .manual-info-card {
+        padding: 2rem;
+    }
+    
+    .pdf-container {
+        height: 400px;
+    }
+    
+    .pdf-embed {
+        height: 400px;
+    }
+    
+    .manual-actions {
+        flex-direction: column;
+    }
+    
+    .quick-links-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .quick-link {
+        padding: 1rem;
+    }
+    
+    .link-icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .manual-section {
+        padding: 60px 0;
+    }
+    
+    .manual-header h2 {
+        font-size: 2rem;
+    }
+    
+    .manual-viewer-card,
+    .manual-info-card,
+    .manual-quick-links {
+        padding: 1.5rem;
+    }
+    
+    .pdf-container {
+        height: 300px;
+    }
+    
+    .pdf-embed {
+        height: 300px;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .quick-links-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* PDF Loading Animation */
+.pdf-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    color: var(--text-secondary);
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border-secondary);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

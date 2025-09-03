@@ -472,3 +472,291 @@ function displayProducts(products) {
     
     // Rest of your function...
 }
+// ============================================
+// PDF MANUAL FUNCTIONALITY - Add to existing JS
+// ============================================
+
+// Print PDF function
+function printPDF() {
+    // Method 1: Try to print the embedded PDF
+    const pdfEmbed = document.querySelector('.pdf-embed');
+    if (pdfEmbed) {
+        try {
+            // For browsers that support it, try to print the embed directly
+            pdfEmbed.contentWindow.print();
+        } catch (e) {
+            // Fallback: Open PDF in new window and trigger print
+            const printWindow = window.open('manual.pdf', '_blank');
+            if (printWindow) {
+                printWindow.onload = function() {
+                    printWindow.print();
+                };
+            }
+        }
+    } else {
+        // If no embed found, just open PDF for printing
+        const printWindow = window.open('manual.pdf', '_blank');
+        if (printWindow) {
+            printWindow.onload = function() {
+                printWindow.print();
+            };
+        }
+    }
+}
+
+// PDF Loading and Error Handling
+function initializePDFSection() {
+    const pdfEmbed = document.querySelector('.pdf-embed');
+    const pdfFallback = document.querySelector('.pdf-fallback');
+    
+    if (pdfEmbed && pdfFallback) {
+        // Show loading state initially
+        showPDFLoading();
+        
+        // Load PDF after a short delay
+        setTimeout(function() {
+            const pdfContainer = document.querySelector('.pdf-container');
+            if (pdfContainer) {
+                pdfContainer.innerHTML = `
+                    <embed 
+                        src="manual.pdf" 
+                        type="application/pdf" 
+                        width="100%" 
+                        height="600"
+                        class="pdf-embed">
+                    </embed>
+                    
+                    <div class="pdf-fallback">
+                        <div class="fallback-icon">📄</div>
+                        <h4>Unable to display PDF</h4>
+                        <p>Your browser doesn't support PDF viewing</p>
+                        <a href="manual.pdf" target="_blank" class="pdf-download-btn">
+                            📥 Download Manual
+                        </a>
+                    </div>
+                `;
+                
+                // Re-attach error handlers to the new embed
+                attachPDFErrorHandlers();
+            }
+        }, 500);
+    }
+}
+
+// Attach error handlers to PDF embed
+function attachPDFErrorHandlers() {
+    const pdfEmbed = document.querySelector('.pdf-embed');
+    const pdfFallback = document.querySelector('.pdf-fallback');
+    
+    if (pdfEmbed && pdfFallback) {
+        // Check if PDF loaded successfully
+        pdfEmbed.addEventListener('error', function() {
+            console.log('PDF embed failed to load');
+            pdfEmbed.style.display = 'none';
+            pdfFallback.classList.add('active');
+        });
+        
+        // Also check after a delay (some browsers don't trigger error event)
+        setTimeout(function() {
+            try {
+                if (pdfEmbed.offsetHeight === 0 || !pdfEmbed.contentDocument) {
+                    console.log('PDF embed appears to have failed');
+                    pdfEmbed.style.display = 'none';
+                    pdfFallback.classList.add('active');
+                }
+            } catch (e) {
+                // If we can't access contentDocument, PDF might not be supported
+                console.log('PDF content not accessible, showing fallback');
+                pdfEmbed.style.display = 'none';
+                pdfFallback.classList.add('active');
+            }
+        }, 2000);
+    }
+}
+
+// Show PDF loading state
+function showPDFLoading() {
+    const pdfContainer = document.querySelector('.pdf-container');
+    if (pdfContainer) {
+        pdfContainer.innerHTML = `
+            <div class="pdf-loading">
+                <div class="loading-spinner"></div>
+                <p>Loading PDF Manual...</p>
+            </div>
+        `;
+    }
+}
+
+// Quick link navigation for PDF sections
+function navigatePDFSection(sectionId) {
+    const pdfEmbed = document.querySelector('.pdf-embed');
+    if (pdfEmbed) {
+        try {
+            // Try to navigate to section in PDF (limited browser support)
+            pdfEmbed.src = `manual.pdf#${sectionId}`;
+        } catch (e) {
+            // Fallback: just open PDF in new tab with anchor
+            window.open(`manual.pdf#${sectionId}`, '_blank');
+        }
+    } else {
+        // No embed, open in new tab
+        window.open(`manual.pdf#${sectionId}`, '_blank');
+    }
+}
+
+// Enhanced DOMContentLoaded to include PDF initialization
+const originalDOMContentLoaded = document.addEventListener;
+document.addEventListener('DOMContentLoaded', function() {
+    // Run your existing initialization
+    loadProductsData();
+    initializeSearch();
+    
+    // Initialize PDF section if it exists
+    if (document.querySelector('.manual-section')) {
+        initializePDFSection();
+    }
+    
+    // Handle smooth scrolling for anchor links (your existing code)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Your existing scroll effect code...
+    let lastScrollTop = 0;
+    let scrollTimeout = null;
+    const header = document.querySelector('header');
+    
+    function handleScroll() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (Math.abs(lastScrollTop - scrollTop) <= 5) return;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            if (header) header.style.transform = 'translateY(-100%)';
+        } else {
+            if (header) header.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(handleScroll, 10);
+    });
+
+    // Your existing intersection observer code...
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+            }
+        });
+    }, observerOptions);
+
+    // Observe service cards, product cards, and manual cards
+    document.querySelectorAll('.service-card, .manual-viewer-card, .manual-info-card').forEach(card => {
+        observer.observe(card);
+    });
+});
+
+// Add event listener for quick links if they exist
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.quick-link')) {
+        e.preventDefault();
+        const link = e.target.closest('.quick-link');
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            const sectionId = href.substring(1);
+            navigatePDFSection(sectionId);
+        }
+    }
+});
+
+// Error handling for PDF operations
+function handlePDFError(operation, error) {
+    console.error(`PDF ${operation} failed:`, error);
+    
+    // Show user-friendly error message
+    const errorDiv = document.createElement('div');
+    errorDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--danger);
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        z-index: 1000;
+        max-width: 300px;
+    `;
+    errorDiv.innerHTML = `
+        <strong>PDF Error</strong><br>
+        Unable to ${operation} PDF. <a href="manual.pdf" target="_blank" style="color: white; text-decoration: underline;">Try opening directly</a>
+    `;
+    
+    document.body.appendChild(errorDiv);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        if (errorDiv.parentNode) {
+            errorDiv.parentNode.removeChild(errorDiv);
+        }
+    }, 5000);
+}
+
+// Enhanced print function with error handling
+function printPDF() {
+    try {
+        const pdfEmbed = document.querySelector('.pdf-embed');
+        if (pdfEmbed) {
+            try {
+                pdfEmbed.contentWindow.print();
+            } catch (e) {
+                const printWindow = window.open('manual.pdf', '_blank');
+                if (printWindow) {
+                    printWindow.onload = function() {
+                        try {
+                            printWindow.print();
+                        } catch (printError) {
+                            handlePDFError('print', printError);
+                        }
+                    };
+                } else {
+                    handlePDFError('print', new Error('Popup blocked'));
+                }
+            }
+        } else {
+            const printWindow = window.open('manual.pdf', '_blank');
+            if (printWindow) {
+                printWindow.onload = function() {
+                    try {
+                        printWindow.print();
+                    } catch (printError) {
+                        handlePDFError('print', printError);
+                    }
+                };
+            } else {
+                handlePDFError('print', new Error('Popup blocked'));
+            }
+        }
+    } catch (error) {
+        handlePDFError('print', error);
+    }
+}
