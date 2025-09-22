@@ -4,21 +4,655 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HardwarePasale - Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="hardfav.png"> 
+    <link rel="icon" type="image/png" href="hardfav.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a2e;
+            --bg-card: #1e1e2e;
+            --bg-glass: rgba(30, 30, 46, 0.8);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            
+            --border-primary: rgba(99, 102, 241, 0.3);
+            --border-secondary: rgba(255, 255, 255, 0.1);
+            
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
+            
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 20px;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+            border-color: var(--border-primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.375rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-primary);
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 1.125rem;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: var(--shadow-card);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Brand Info */
+        .brand-info {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .brand-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .brand-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand-text p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .brand-visual {
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-card));
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .brand-visual video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services */
+        .services {
+            padding: 120px 0;
+            background: var(--bg-tertiary);
+        }
+
+        .services h2 {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--border-secondary);
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--border-primary);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.15);
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Manual Section */
+        .manual-section {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .manual-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent), #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .manual-section > p {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+        }
+
+        .manual-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .pdf-viewer {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-secondary);
+        }
+
+        .pdf-viewer embed {
+            width: 100%;
+            height: 500px;
+        }
+
+        .manual-info {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-secondary);
+            text-align: left;
+        }
+
+        .manual-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .manual-info ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .manual-info li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--accent), #eab308);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--bg-tertiary), #0f0f1a);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-secondary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-secondary);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .brand-info,
+            .services,
+            .manual-section {
+                padding: 80px 0;
+            }
+            
+            .brand-content {
+                gap: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-glass);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid var(--border-secondary);
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+            }
+
+            nav li {
+                border-bottom: 1px solid var(--border-secondary);
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                padding: 1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+
+            .brand-info,
+            .services,
+            .manual-section {
+                padding: 60px 0;
+            }
+
+            .brand-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .brand-text h2 {
+                font-size: 2rem;
+            }
+
+            .brand-text p {
+                font-size: 1rem;
+            }
+
+            .services h2 {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .manual-section h2 {
+                font-size: 2rem;
+            }
+
+            .manual-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pdf-viewer embed {
+                height: 350px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 14px 28px;
+                font-size: 0.9rem;
+            }
+
+            .brand-text h2 {
+                font-size: 1.75rem;
+            }
+
+            .services h2,
+            .manual-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .service-icon {
+                font-size: 3rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.125rem;
+            }
+
+            .pdf-viewer embed {
+                height: 250px;
+            }
+
+            .manual-info {
+                padding: 1.5rem;
+            }
+
+            .manual-info h3 {
+                font-size: 1.25rem;
+            }
+
+            .footer-content {
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">🔨 HardwarePasale</div>
-                <nav>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+                <nav id="nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.html">Products</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="video.html">Product Videos</a></li>
-
                     </ul>
                 </nav>
             </div>
@@ -44,7 +678,7 @@
                     <p>From small home repairs to large construction projects, we have everything you need under one roof. Our experienced team is always ready to help you find the right tools and materials for your project.</p>
                 </div>
                 <div class="brand-visual">
-                    <video width="100%" height="400" autoplay muted loop playsinline>
+                    <video width="100%" autoplay muted loop playsinline>
                         <source src="intro video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -65,7 +699,7 @@
                 <div class="service-card">
                     <div class="service-icon">🛠️</div>
                     <h3>Setups and Installations</h3>
-                    <p>Our experienced team provides free setups and installation of your particular product to help you to easily access your required service.</p>
+                    <p>Our experienced team provides free setups and installation of your particular product to help you easily access your required service.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📋</div>
@@ -88,7 +722,7 @@
             
             <div class="manual-grid">
                 <div class="pdf-viewer">
-                    <embed src="book.pdf" type="application/pdf" width="100%" height="500">
+                    <embed src="book.pdf" type="application/pdf" width="100%">
                 </div>
                 <div class="manual-info">
                     <h3>What's Inside</h3>
@@ -141,6 +775,11 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+
+            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
