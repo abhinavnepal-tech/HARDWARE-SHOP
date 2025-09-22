@@ -45,10 +45,16 @@
             overflow: hidden;
         }
 
-        .video-thumbnail video {
+        .video-thumbnail img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .video-thumbnail iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .video-play-overlay {
@@ -61,6 +67,7 @@
             opacity: 0;
             transition: var(--transition);
             cursor: pointer;
+            z-index: 2;
         }
 
         .video-thumbnail:hover .video-play-overlay {
@@ -70,6 +77,7 @@
         .play-button {
             font-size: 3rem;
             color: var(--text-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .video-info {
@@ -127,11 +135,14 @@
             max-width: 90vw;
             max-height: 90vh;
             position: relative;
+            background: #000;
+            border-radius: var(--border-radius);
         }
 
         .modal-video {
             width: 100%;
             height: auto;
+            min-height: 400px;
             border-radius: var(--border-radius);
         }
 
@@ -145,16 +156,26 @@
             font-size: 2rem;
             cursor: pointer;
             padding: 0.5rem;
+            z-index: 10;
         }
 
-        .success-message {
-            background: linear-gradient(135deg, var(--secondary), #059669);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            margin-top: 1rem;
-            text-align: center;
-            display: none;
+        .youtube-embed {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .youtube-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .youtube-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         @media (max-width: 768px) {
@@ -165,6 +186,10 @@
             .modal-content {
                 max-width: 95vw;
                 max-height: 80vh;
+            }
+
+            .modal-video {
+                min-height: 250px;
             }
         }
     </style>
@@ -193,8 +218,6 @@
         </div>
     </div>
 
-
-
     <section class="video-gallery">
         <div class="container">
             <h2 style="text-align: center; font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Featured Videos</h2>
@@ -210,7 +233,7 @@
     <div class="video-modal" id="videoModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">×</button>
-            <video class="modal-video" id="modalVideo" controls></video>
+            <div class="modal-video" id="modalVideo"></div>
         </div>
     </div>
 
@@ -252,48 +275,125 @@
     </footer>
 
     <script>
-        // Sample video data - in real implementation, this would come from a server
+        // Sample video data with YouTube URLs including Shorts
         let videosData = [
-      {
-    id: 4,
-    title: "How to Install a Faucet",
-    category: "bathroom/sanitary",
-    description: "Learn how to install a faucet step-by-step.",
-    videoUrl: "https://www.youtube.com/shorts/GgmYd6GmWjE",
-    thumbnail: "",
-    uploadDate: "2024-02-01",
-    duration: "4:30"
-}
-,
-    {
+            {
+                id: 1,
+                title: "All tools in our shop",
+                category: "tools",
+                description: "",
+                videoUrl: "https://www.youtube.com/shorts/fOJFsCX_dOQ",
+                uploadDate: "2024-02-01",
+                duration: "0:60"
+            },
+            {
                 id: 2,
-                title: "Bathroom Fitting Complete Tutorial",
-                category: "bathroom/sanitary",
-                description: "Complete tutorial on bathroom fitting including basin, toilet, and shower installation.",
-                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-                thumbnail: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
-                uploadDate: "2024-01-10",
-                duration: "8:45"
+                title: "🔧 Wall-mounted dual shower setup",
+                category: "pipes/plumbing",
+                description: "Quick hack for perfect PVC pipe connections every time.",
+                videoUrl: "https://www.youtube.com/shorts/BcldoW_dfZg",
+                uploadDate: "2024-01-15",
+                duration: "0:45"
             },
             {
                 id: 3,
-                title: "Wall Painting Techniques",
+                title: "Paints",
                 category: "paints",
-                description: "Professional wall painting techniques for smooth and durable finish.",
-                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-                thumbnail: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg",
+                description: "Professional paint mixing technique for perfect color consistency.",
+                videoUrl: "https://www.youtube.com/shorts/JogIYO8W4mg",
                 uploadDate: "2024-01-05",
-                duration: "6:12"
-            }
+                duration: "0:30"
+            },
+            {
+                id: 4,
+                title: "How we make custom paints🎨",
+                category: "motors/pumps",
+                description: "Quick troubleshooting tips for common motor pump issues.",
+                videoUrl: "https://www.youtube.com/shorts/-B1o5W_z-5M",
+                uploadDate: "2024-01-20",
+                duration: "0:55"
+            },
+            {
+                id: 5,
+                title: "Commode and shower set",
+                category: "tools/hardware",
+                description: "",
+                videoUrl: "https://www.youtube.com/shorts/Z3v_AKa6s-Y",
+                uploadDate: "2024-01-25",
+                duration: "5:30"
+            },
+                {
+                id: 5,
+                title: "Pipes and Hardwares",
+                category: "tools/hardware",
+                description: "Smart ways to organize your hardware tools for maximum efficiency.",
+                videoUrl: "https://www.youtube.com/shorts/kwrerbR6hb4",
+                uploadDate: "2024-01-25",
+                duration: "5:30"
+            },
+                   {
+                id: 6,
+                title: "Household Utensils",
+                category: "tools/hardware",
+                description: "Smart ways to organize your hardware tools for maximum efficiency.",
+                videoUrl: "https://youtube.com/shorts/8sehL1LXn4Y?feature=share",
+                uploadDate: "2024-01-25",
+                duration: "5:30"
+            },
+                   {
+                id: 7,
+                title: "Hindware and Bathroom Items",
+                category: "tools/hardware",
+                description: "Smart ways to organize your hardware tools for maximum efficiency.",
+                videoUrl: "https://youtube.com/shorts/fGt7FQu6tFI?feature=share",
+                uploadDate: "2024-01-25",
+                duration: "5:30"
+            },
+      
         ];
+
+        // Utility functions for YouTube
+        function getYouTubeVideoId(url) {
+            // Enhanced regex to handle YouTube Shorts URLs
+            const patterns = [
+                /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i,
+                /youtube\.com\/shorts\/([^"&?\/\s]{11})/i,
+                /youtube\.com\/watch\?v=([^"&?\/\s]{11})/i,
+                /youtu\.be\/([^"&?\/\s]{11})/i
+            ];
+            
+            for (let pattern of patterns) {
+                const match = url.match(pattern);
+                if (match) return match[1];
+            }
+            return null;
+        }
+
+        function getYouTubeThumbnail(videoId) {
+            return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        }
+
+        function getYouTubeEmbedUrl(videoId, isShort = false) {
+            if (isShort) {
+                // For shorts, use a different approach
+                return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1`;
+            }
+            return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        }
+
+        function isYouTubeUrl(url) {
+            return url.includes('youtube.com') || url.includes('youtu.be');
+        }
+
+        function isYouTubeShort(url) {
+            return url.includes('youtube.com/shorts/') || url.includes('/shorts/');
+        }
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             loadVideos();
             initializeModal();
         });
-
-
 
         // Load and display videos
         function loadVideos() {
@@ -304,18 +404,29 @@
                 const videoCard = document.createElement('div');
                 videoCard.className = 'video-card';
                 
+                const isYT = isYouTubeUrl(video.videoUrl);
+                const isShort = isYouTubeShort(video.videoUrl);
+                const videoId = isYT ? getYouTubeVideoId(video.videoUrl) : null;
+                const thumbnailUrl = isYT ? getYouTubeThumbnail(videoId) : video.thumbnail;
+                
                 videoCard.innerHTML = `
                     <div class="video-thumbnail">
-                        <video preload="metadata" muted>
-                            <source src="${video.videoUrl}" type="video/mp4">
-                        </video>
-                        <div class="video-play-overlay" onclick="openVideoModal('${video.videoUrl}')">
+                        ${isYT ? 
+                            `<div class="youtube-thumbnail">
+                                <img src="${thumbnailUrl}" alt="${video.title}" onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">
+                                ${isShort ? '<div style="position: absolute; top: 10px; right: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: bold;">SHORT</div>' : ''}
+                            </div>` :
+                            `<video preload="metadata" muted>
+                                <source src="${video.videoUrl}" type="video/mp4">
+                            </video>`
+                        }
+                        <div class="video-play-overlay" onclick="openVideoModal('${video.videoUrl}', ${isYT}, ${isShort})">
                             <div class="play-button">▶️</div>
                         </div>
                     </div>
                     <div class="video-info">
                         <div class="video-title">${video.title}</div>
-                        <div class="video-category">${video.category.replace(/[-_]/g, ' ')}</div>
+                        <div class="video-category">${video.category.replace(/[-_\/]/g, ' ')}</div>
                         <div class="video-description">${video.description}</div>
                         <div class="video-meta">
                             <span>📅 ${new Date(video.uploadDate).toLocaleDateString()}</span>
@@ -332,7 +443,6 @@
         function initializeModal() {
             const modal = document.getElementById('videoModal');
             const modalClose = document.getElementById('modalClose');
-            const modalVideo = document.getElementById('modalVideo');
 
             modalClose.addEventListener('click', closeVideoModal);
             
@@ -351,13 +461,37 @@
         }
 
         // Open video modal
-        function openVideoModal(videoUrl) {
+        function openVideoModal(videoUrl, isYouTube = false, isShort = false) {
             const modal = document.getElementById('videoModal');
             const modalVideo = document.getElementById('modalVideo');
             
-            modalVideo.src = videoUrl;
+            if (isYouTube) {
+                const videoId = getYouTubeVideoId(videoUrl);
+                const embedUrl = getYouTubeEmbedUrl(videoId, isShort);
+                
+                // Adjust iframe size for shorts
+                const iframeWidth = isShort ? "400" : "800";
+                const iframeHeight = isShort ? "600" : "450";
+                
+                modalVideo.innerHTML = `<iframe width="${iframeWidth}" height="${iframeHeight}" src="${embedUrl}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`;
+                
+                // Adjust modal content styling for shorts
+                const modalContent = modal.querySelector('.modal-content');
+                if (isShort) {
+                    modalContent.style.maxWidth = '450px';
+                    modalContent.style.aspectRatio = 'auto';
+                } else {
+                    modalContent.style.maxWidth = '90vw';
+                    modalContent.style.aspectRatio = 'auto';
+                }
+            } else {
+                modalVideo.innerHTML = `<video controls autoplay style="width: 100%; height: auto;">
+                    <source src="${videoUrl}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>`;
+            }
+            
             modal.classList.add('active');
-            modalVideo.play();
         }
 
         // Close video modal
@@ -366,9 +500,27 @@
             const modalVideo = document.getElementById('modalVideo');
             
             modal.classList.remove('active');
-            modalVideo.pause();
-            modalVideo.src = '';
+            modalVideo.innerHTML = ''; // Clear the content to stop video playback
         }
+
+        // Add video function (for future use with admin panel)
+        function addVideo(title, category, description, videoUrl, duration = "0:00") {
+            const newVideo = {
+                id: Date.now(),
+                title: title,
+                category: category,
+                description: description,
+                videoUrl: videoUrl,
+                uploadDate: new Date().toISOString().split('T')[0],
+                duration: duration
+            };
+            
+            videosData.unshift(newVideo);
+            loadVideos();
+        }
+
+        // Example of how to add a new video (can be called from admin interface)
+        // addVideo("New Tutorial", "tools", "Description here", "https://www.youtube.com/watch?v=VIDEO_ID", "5:30");
     </script>
 </body>
 </html>
