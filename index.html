@@ -117,12 +117,19 @@
             border-radius: 12px;
             transition: var(--transition);
             border: 1px solid transparent;
+            cursor: pointer;
         }
 
         nav a:hover {
             color: var(--text-primary);
             border-color: var(--border-primary);
             background: rgba(99, 102, 241, 0.1);
+        }
+
+        nav a.active {
+            color: var(--text-primary);
+            border-color: var(--border-primary);
+            background: rgba(99, 102, 241, 0.15);
         }
 
         /* Hero Section */
@@ -180,6 +187,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -639,6 +647,287 @@
                 gap: 1.5rem;
             }
         }
+
+        /* Page Content Sections - Initially hidden */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Products Page Styles */
+        .page-header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 140px 0 100px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--accent), #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.375rem;
+            color: var(--text-secondary);
+        }
+
+        .search-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .search-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            padding: 1rem;
+            border: 1px solid var(--border-secondary);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 1rem;
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            background: transparent;
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .filters {
+            padding: 3rem 0;
+            background: var(--bg-tertiary);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-secondary);
+            color: var(--text-secondary);
+            padding: 16px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-primary);
+            border-color: var(--border-primary);
+            transform: translateY(-2px);
+        }
+
+        .products-container {
+            padding: 4rem 0;
+            background: var(--bg-primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            border: 1px solid var(--border-secondary);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--border-primary);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 1px solid var(--border-secondary);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .product-category {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+        }
+
+        .product-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-secondary);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--border-primary);
+        }
+
+        .contact-card .service-icon {
+            margin-bottom: 2rem;
+        }
+
+        .videos-section {
+            padding: 4rem 0;
+            background: var(--bg-primary);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-secondary);
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--border-primary);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--text-muted);
+        }
+
+        .video-info {
+            padding: 2rem;
+        }
+
+        .video-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
     </style>
 </head>
 <body>
@@ -649,96 +938,273 @@
                 <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
                 <nav id="nav">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="video.html">Product Videos</a></li>
+                        <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                        <li><a href="#" onclick="showPage('products')" class="nav-link">Products</a></li>
+                        <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                        <li><a href="#" onclick="showPage('videos')" class="nav-link">Product Videos</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Your Trusted Hardware Partner</h1>
-                <p>Quality tools, materials, and supplies for all your construction and repair needs</p>
-                <a href="products.html" class="cta-button">Shop Now →</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="brand-info">
-        <div class="container">
-            <div class="brand-content">
-                <div class="brand-text">
-                    <h2>About HardwarePasale</h2>
-                    <p>For over 15 years, HardwarePasale has been serving contractors, builders, and DIY enthusiasts with premium quality hardware supplies. We pride ourselves on offering competitive prices, expert advice, and reliable service.</p>
-                    <p>From small home repairs to large construction projects, we have everything you need under one roof. Our experienced team is always ready to help you find the right tools and materials for your project.</p>
-                </div>
-                <div class="brand-visual">
-                    <video width="100%" autoplay muted loop playsinline>
-                        <source src="intro video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Your Trusted Hardware Partner</h1>
+                    <p>Quality tools, materials, and supplies for all your construction and repair needs</p>
+                    <a href="#" onclick="showPage('products')" class="cta-button">Shop Now →</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🚚</div>
-                    <h3>Free Delivery</h3>
-                    <p>Free delivery on orders within 10km radius. Fast and reliable service to your doorstep.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Setups and Installations</h3>
-                    <p>Our experienced team provides free setups and installation of your particular product to help you easily access your required service.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3>Bulk Orders</h3>
-                    <p>Special pricing for contractors and bulk orders. Custom quotes available for large projects.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔄</div>
-                    <h3>Easy Returns</h3>
-                    <p>30-day return policy on unused items. Hassle-free exchanges and refunds guaranteed.</p>
+        <section class="brand-info">
+            <div class="container">
+                <div class="brand-content">
+                    <div class="brand-text">
+                        <h2>About HardwarePasale</h2>
+                        <p>For over 15 years, HardwarePasale has been serving contractors, builders, and DIY enthusiasts with premium quality hardware supplies. We pride ourselves on offering competitive prices, expert advice, and reliable service.</p>
+                        <p>From small home repairs to large construction projects, we have everything you need under one roof. Our experienced team is always ready to help you find the right tools and materials for your project.</p>
+                    </div>
+                    <div class="brand-visual">
+                        <video width="100%" autoplay muted loop playsinline>
+                            <source src="intro video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="manual-section">
-        <div class="container">
-            <h2>📖 Product Manual & Guide</h2>
-            <p>Access our comprehensive hardware guide and installation manuals</p>
-            
-            <div class="manual-grid">
-                <div class="pdf-viewer">
-                    <embed src="book.pdf" type="application/pdf" width="100%">
-                </div>
-                <div class="manual-info">
-                    <h3>What's Inside</h3>
-                    <ul>
-                        <li>🔧 Installation Guides</li>
-                        <li>⚡ Technical Specs</li>
-                        <li>🛡️ Safety Guidelines</li>
-                        <li>🔄 Maintenance Tips</li>
-                    </ul>
-                    <a href="book.pdf" target="_blank" class="download-btn">📥 Download PDF</a>
+        <section class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🚚</div>
+                        <h3>Free Delivery</h3>
+                        <p>Free delivery on orders within 10km radius. Fast and reliable service to your doorstep.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛠️</div>
+                        <h3>Setups and Installations</h3>
+                        <p>Our experienced team provides free setups and installation of your particular product to help you easily access your required service.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📋</div>
+                        <h3>Bulk Orders</h3>
+                        <p>Special pricing for contractors and bulk orders. Custom quotes available for large projects.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔄</div>
+                        <h3>Easy Returns</h3>
+                        <p>30-day return policy on unused items. Hassle-free exchanges and refunds guaranteed.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact">
+        <section class="manual-section">
+            <div class="container">
+                <h2>📖 Product Manual & Guide</h2>
+                <p>Access our comprehensive hardware guide and installation manuals</p>
+                
+                <div class="manual-grid">
+                    <div class="pdf-viewer">
+                        <embed src="book.pdf" type="application/pdf" width="100%">
+                    </div>
+                    <div class="manual-info">
+                        <h3>What's Inside</h3>
+                        <ul>
+                            <li>🔧 Installation Guides</li>
+                            <li>⚡ Technical Specs</li>
+                            <li>🛡️ Safety Guidelines</li>
+                            <li>🔄 Maintenance Tips</li>
+                        </ul>
+                        <a href="book.pdf" target="_blank" class="download-btn">📥 Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="products" class="page-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <p>Browse through our extensive collection of quality hardware supplies</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <h2>Find What You Need</h2>
+                <div class="search-box">
+                    <input type="text" id="productSearch" placeholder="Search for products...">
+                </div>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All Products</button>
+                    <button class="filter-btn" data-category="pipes">Pipes & Plumbing</button>
+                    <button class="filter-btn" data-category="bathroom">Bathroom & Sanitary</button>
+                    <button class="filter-btn" data-category="paints">Paints & Waterproof</button>
+                    <button class="filter-btn" data-category="basin">Basin and Motors</button>
+                    <button class="filter-btn" data-category="tools">Tools & Hardware</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-container">
+            <div class="container">
+                <div class="products-grid" id="productsGrid">
+                    <div class="product-card" data-category="pipes">
+                        <div class="product-image">🔧</div>
+                        <div class="product-info">
+                            <div class="product-category">Pipes & Plumbing</div>
+                            <h3 class="product-name">PVC Pipes Set</h3>
+                            <div class="product-price">Rs. 2,500</div>
+                            <p class="product-description">High-quality PVC pipes for residential and commercial plumbing applications.</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="bathroom">
+                        <div class="product-image">🚿</div>
+                        <div class="product-info">
+                            <div class="product-category">Bathroom & Sanitary</div>
+                            <h3 class="product-name">Shower Set</h3>
+                            <div class="product-price">Rs. 8,500</div>
+                            <p class="product-description">Complete shower set with modern design and water-saving features.</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="paints">
+                        <div class="product-image">🎨</div>
+                        <div class="product-info">
+                            <div class="product-category">Paints & Waterproof</div>
+                            <h3 class="product-name">Wall Paint - Premium</h3>
+                            <div class="product-price">Rs. 3,200</div>
+                            <p class="product-description">Premium quality wall paint with excellent coverage and durability.</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="basin">
+                        <div class="product-image">🪣</div>
+                        <div class="product-info">
+                            <div class="product-category">Basin and Motors</div>
+                            <h3 class="product-name">Water Basin</h3>
+                            <div class="product-price">Rs. 4,800</div>
+                            <p class="product-description">Durable water basin suitable for various applications and installations.</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="tools">
+                        <div class="product-image">🔨</div>
+                        <div class="product-info">
+                            <div class="product-category">Tools & Hardware</div>
+                            <h3 class="product-name">Tool Kit - Professional</h3>
+                            <div class="product-price">Rs. 15,600</div>
+                            <p class="product-description">Complete professional tool kit for construction and repair work.</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="pipes">
+                        <div class="product-image">⚡</div>
+                        <div class="product-info">
+                            <div class="product-category">Pipes & Plumbing</div>
+                            <h3 class="product-name">Water Pump</h3>
+                            <div class="product-price">Rs. 12,000</div>
+                            <p class="product-description">High-efficiency water pump for residential water supply systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team for any queries or assistance</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <h2>We're Here to Help</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="service-icon">📍</div>
+                        <h3>Visit Our Store</h3>
+                        <p>Kaushaltar, Bhaktapur</p>
+                        <p>Open: Sun-Sat, 7:00 AM - 7:00 PM</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="service-icon">📞</div>
+                        <h3>Call Us</h3>
+                        <p>+977 984-9940823</p>
+                        <p>For immediate assistance and quotes</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="service-icon">✉️</div>
+                        <h3>Email Us</h3>
+                        <p>hardwarepasale@gmail.com</p>
+                        <p>We'll respond within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VIDEOS PAGE -->
+    <div id="videos" class="page-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Product Videos</h1>
+                <p>Watch our product demonstrations and installation guides</p>
+            </div>
+        </section>
+
+        <section class="videos-section">
+            <div class="container">
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-info">
+                            <h3>PVC Pipe Installation Guide</h3>
+                            <p>Learn how to properly install PVC pipes for your plumbing projects.</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-info">
+                            <h3>Bathroom Fixtures Setup</h3>
+                            <p>Complete guide on setting up modern bathroom fixtures and accessories.</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-info">
+                            <h3>Paint Application Techniques</h3>
+                            <p>Professional tips for applying paint and waterproofing materials.</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-info">
+                            <h3>Tool Maintenance</h3>
+                            <p>Keep your tools in perfect condition with our maintenance guide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -775,7 +1241,84 @@
         </div>
     </footer>
 
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation active state
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Close mobile menu if open
+            const nav = document.getElementById('nav');
+            nav.classList.remove('active');
+        }
 
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // Product filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active filter button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Product search functionality
+            const searchInput = document.getElementById('productSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    productCards.forEach(card => {
+                        const productName = card.querySelector('.product-name').textContent.toLowerCase();
+                        const productCategory = card.querySelector('.product-category').textContent.toLowerCase();
+                        const productDescription = card.querySelector('.product-description').textContent.toLowerCase();
+                        
+                        if (productName.includes(searchTerm) || 
+                            productCategory.includes(searchTerm) || 
+                            productDescription.includes(searchTerm)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('nav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
             if (!nav.contains(e.target) && !toggle.contains(e.target)) {
                 nav.classList.remove('active');
             }
