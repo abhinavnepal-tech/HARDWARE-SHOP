@@ -109,45 +109,176 @@
     },
     {
       "id": 10,
-      "name": "Bathroom Items",
-      "category": "bathroom/sanitary",
+      "name": "4 Inch ply cutting blade",
+      "category": "tools",
       "price":"",
-      "description": "Complete set of bathroom sanitary items including faucets and showerheads.",
-      "icon": "bath-items.jpeg"
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758539837/WhatsApp_Image_2025-09-21_at_6.48.09_PM_w6snuq.jpg"
     },
     
     {
       "id": 13,
-      "name": "Tape and Tile Adhesive",
-      "category": "cleaning items",
+      "name": "Basin Mixers",
+      "category": "basin",
       "price": "",
-      "description": "Strong adhesive tape for tile installation and repairs.",
-      "icon": "tap and tile.jpeg"
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540199/WhatsApp_Image_2025-09-21_at_6.50.50_PM_dzj3cj.jpg"
     },
     {
       "id": 14,
-      "name": "Glass Cleaner",
-      "category": "cleaning items",
+      "name": "Display set",
+      "category": "packages and set",
       "price": "",
-      "description": "Streak-free glass cleaner for windows and mirrors.",
-      "icon": "glasscleaner.jpeg"
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540199/WhatsApp_Image_2025-09-21_at_6.51.21_PM_ozm7jh.jpg"
     },
     {
       "id": 15,
-      "name": "Toilet Bould Cleaner",
-      "category": "cleaning items",
+      "name": "Aspiro Golden Shower Set",
+      "category": "packages and set",
       "price": "",
-      "description": "Heavy-duty toilet bowl cleaner with disinfectant properties.",
-      "icon": "Toiletcleaner.jpeg"
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540479/WhatsApp_Image_2025-09-21_at_7.01.27_PM_a4jk0a.jpg"
     },
   
     {
       "id": 17,
-      "name": "Neolina Commode",
+      "name": "Aspiro Black Shower Set",
+      "category": "packages and set",
+      "price": "",
+      "description": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540595/WhatsApp_Image_2025-09-21_at_7.01.47_PM_aipinu.jpg",
+      "icon": "neolina.jpeg"
+    },
+    {
+      "id": 18,
+      "name": "Aspiro Silver Shower set",
+      "category": "packages and set",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540758/WhatsApp_Image_2025-09-21_at_7.01.56_PM_1_hllhez.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Aspiro Silver Shower set(circle)",
+      "category": "packages and set",
+      "price": "",
+      "description": ".",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540811/WhatsApp_Image_2025-09-21_at_7.02.48_PM_1_zw9wsk.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Mirror set",
+      "category": "packages and set",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540907/WhatsApp_Image_2025-09-21_at_7.03.19_PM_vzjcv3.jpg"
+    }
+       , {
+      "id": 10,
+      "name": "Cleaning set",
+      "category": "bathroom/sanitary",
+      "price":"",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541022/WhatsApp_Image_2025-09-21_at_7.17.20_PM_mkdspy.jpg"
+    },
+    
+    {
+      "id": 13,
+      "name": "LED Mirror",
+      "category": "basin",
+      "price": "",
+      "description": "Strong adhesive tape for tile installation and repairs.",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541025/WhatsApp_Image_2025-09-21_at_7.04.15_PM_hosk0b.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Kitchen rack",
+      "category": "packages and set",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541333/WhatsApp_Image_2025-09-21_at_7.41.18_PM_1_n73tjd.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Drain Covers",
+      "category": "cleaning items",
+      "price": "",
+      "description":"",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541214/WhatsApp_Image_2025-09-21_at_7.39.06_PM_fugqtp.jpg"
+    },
+  
+    {
+      "id": 17,
+      "name": "Sink Organizers",
       "category": "bathroom/sanitary",
       "price": "",
-      "description": "Eco-friendly commode with water-saving features.",
-      "icon": "neolina.jpeg"
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541213/WhatsApp_Image_2025-09-21_at_7.40.16_PM_lqbbvc.jpg"
+    },
+    {
+      "id": 18,
+      "name": "water pumps",
+      "category": "tools",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541612/WhatsApp_Image_2025-09-21_at_7.46.33_PM_gq49v5.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Brass Valve with Lock",
+      "category": "tools",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541600/WhatsApp_Image_2025-09-21_at_7.42.28_PM_cdxic6.jpg"
+    },
+    {
+      "id": 20,
+      "name": "wheel barrow",
+      "category": "tools",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541593/WhatsApp_Image_2025-09-21_at_7.47.25_PM_pixsr6.jpg"
+    }  ,  {
+      "id": 10,
+      "name": "Grinding disc set",
+      "category": "packages and set",
+      "price":"",
+      "description":"",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541606/WhatsApp_Image_2025-09-21_at_7.48.23_PM_xwhzck.jpg"
+    },
+    
+    {
+      "id": 13,
+      "name": "Pedestal Sink Set 1",
+      "category": "basin",
+      "price": "",
+      "description": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541566/WhatsApp_Image_2025-09-21_at_7.51.46_PM_c2pkc4.jpg",
+      "icon": "tap and tile.jpeg"
+    },
+    {
+      "id": 14,
+      "name": "Pedestal Sink Set 2",
+      "category": "basin",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541569/WhatsApp_Image_2025-09-21_at_7.50.36_PM_tq0rm2.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Faucet Board",
+      "category": "bathroom/sanitary",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542046/WhatsApp_Image_2025-09-21_at_7.57.34_PM_2_wfomz9.jpg"
+    },
+  
+    {
+      "id": 17,
+      "name": "Lock and Hardware panel",
+      "category": "bathroom/sanitary",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542050/WhatsApp_Image_2025-09-21_at_7.57.32_PM_odynop.jpg"
     },
     {
       "id": 18,
@@ -159,20 +290,76 @@
     },
     {
       "id": 19,
-      "name": "Fix It",
-      "category": "Maintenance&Waterproof",
+      "name": "Fevical Heatx",
+      "category": "paints",
       "price": "",
-      "description": "Versatile repair compound for fixing leaks and cracks.",
-      "icon": "fixit.jpeg"
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542121/WhatsApp_Image_2025-09-21_at_7.57.33_PM_zhrk9v.jpg"
     },
     {
       "id": 20,
-      "name": "Faucet Cleaner",
-      "category": "cleaning items",
+      "name": "Paint shield",
+      "category": "paints",
       "price": "",
-      "description": "Effective faucet cleaner for removing limescale and grime.",
-      "icon": "faucet.jpeg"
-    }
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542112/WhatsApp_Image_2025-09-21_at_7.57.34_PM_alkmtq.jpg"
+    } ,   {
+      "id": 10,
+      "name": "Berger Brolac",
+      "category": "paints",
+      "price":"",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542052/WhatsApp_Image_2025-09-21_at_7.57.34_PM_1_owcvgh.jpg"
+    },
     
+    {
+      "id": 13,
+      "name": "Fevial Marine Adhesive",
+      "category": "paints",
+      "price": "",
+      "description": "",
+      "icon": ""
+    },
+    {
+      "id": 14,
+      "name": "Coloured Basin",
+      "category": "basin",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542421/WhatsApp_Image_2025-09-21_at_7.57.46_PM_sockxg.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Golden-border Basin",
+      "category": "basin",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542437/WhatsApp_Image_2025-09-21_at_7.57.47_PM_debus3.jpg"
+    },
+  
+    {
+      "id": 17,
+      "name": "Vanity Set",
+      "category": "basin",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542614/WhatsApp_Image_2025-09-21_at_7.57.49_PM_oycdb1.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Decorative Mirror",
+      "category": "bathroom/sanitary",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542631/WhatsApp_Image_2025-09-21_at_7.57.48_PM_zzk6n0.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Vanity Cabinet with Basin",
+      "category": "",
+      "price": "",
+      "description": "",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542630/WhatsApp_Image_2025-09-21_at_7.57.47_PM_1_rv7ncj.jpg"
+    }
   ]
 }

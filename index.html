@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HardwarePasale - Home</title>
     <link rel="stylesheet" href="style.css">
-     <link rel="icon" type="image/png" href="hardfav.png"> 
-     <link rel="icon" type="image/png" href="hardfav.png"> 
-    <link rel="shortcut icon" href="/hardfav.png" type="image/x-icon">
-    <link rel="icon" href="hardfav.png" type="image/png">
-
+    <link rel="icon" type="image/png" href="hardfav.png"> 
 </head>
 <body>
     <header>
@@ -27,7 +23,6 @@
         </div>
     </header>
 
-    <!-- Home Page -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -46,21 +41,12 @@
                     <p>For over 15 years, HardwarePasale has been serving contractors, builders, and DIY enthusiasts with premium quality hardware supplies. We pride ourselves on offering competitive prices, expert advice, and reliable service.</p>
                     <p>From small home repairs to large construction projects, we have everything you need under one roof. Our experienced team is always ready to help you find the right tools and materials for your project.</p>
                 </div>
-                <div style="background: linear-gradient(135deg, #10b981, #059669); padding: 3rem; border-radius: 1rem;">
-    <video 
-        width="100%" 
-        height="400" 
-        autoplay 
-        muted 
-        loop 
-        playsinline
-        style="border-radius: 0.75rem; object-fit: cover;"
-    >
-        <source src="intro video.mp4" type="video/mp4">
-        <source src="intro video.mp4" type="video/webm">
-        Your browser does not support the video tag.
-    </video>
-</div>
+                <div class="brand-visual">
+                    <video width="100%" height="400" autoplay muted loop playsinline>
+                        <source src="intro video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
     </section>
@@ -79,7 +65,7 @@
                     <h3>Setups and Installations</h3>
                     <p>Our experienced team provides free setups and installation of your particular product to help you to easily access your required service.</p>
                 </div>
-                <div class="service-card">`
+                <div class="service-card">
                     <div class="service-icon">📋</div>
                     <h3>Bulk Orders</h3>
                     <p>Special pricing for contractors and bulk orders. Custom quotes available for large projects.</p>
@@ -92,128 +78,29 @@
             </div>
         </div>
     </section>
-    <!-- Premium Manual Section - Add this before the footer -->
-<section class="manual-section">
-    <div class="container">
-        <div class="manual-content">
-            <div class="manual-header">
-                <h2>📖 Product Manual & Guide</h2>
-                <p>Access our comprehensive hardware guide, installation manuals, and technical specifications</p>
-            </div>
+
+    <section class="manual-section">
+        <div class="container">
+            <h2>📖 Product Manual & Guide</h2>
+            <p>Access our comprehensive hardware guide and installation manuals</p>
             
             <div class="manual-grid">
-                <!-- PDF Viewer Card -->
-                <div class="manual-viewer-card">
-                    <div class="manual-viewer-header">
-                        <div class="manual-icon">📋</div>
-                        <h3>Hardware Installation Manual</h3>
-                        <p>Complete guide for all our products</p>
-                    </div>
-                    
-                    <div class="pdf-container">
-                        <embed 
-                            src="book.pdf" 
-                            type="application/pdf" 
-                            width="100%" 
-                            height="600"
-                            class="pdf-embed">
-                        </embed>
-                        
-                        <!-- Fallback for browsers that don't support embed -->
-                        <div class="pdf-fallback">
-                            <div class="fallback-icon">📄</div>
-                            <h4>Unable to display PDF</h4>
-                            <p>Your browser doesn't support PDF viewing</p>
-                            <a href="book.pdf" target="_blank" class="pdf-download-btn">
-                                📥 Download Manual
-                            </a>
-                        </div>
-                    </div>
+                <div class="pdf-viewer">
+                    <embed src="book.pdf" type="application/pdf" width="100%" height="500">
                 </div>
-                
-                <!-- Manual Info Card -->
-                <div class="manual-info-card">
-                    <div class="info-header">
-                        <div class="info-icon">ℹ️</div>
-                        <h3>What's Inside</h3>
-                    </div>
-                    
-                    <div class="manual-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">🔧</div>
-                            <div class="feature-text">
-                                <h4>Installation Guides</h4>
-                                <p>Step-by-step installation instructions</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">⚡</div>
-                            <div class="feature-text">
-                                <h4>Technical Specs</h4>
-                                <p>Detailed product specifications</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">🛡️</div>
-                            <div class="feature-text">
-                                <h4>Safety Guidelines</h4>
-                                <p>Important safety information</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">🔄</div>
-                            <div class="feature-text">
-                                <h4>Maintenance Tips</h4>
-                                <p>Keep your hardware in top condition</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="manual-actions">
-                        <a href="book.pdf" target="_blank" class="action-btn primary-btn">
-                            <span>📥</span>
-                            Download PDF
-                        </a>
-                        <a href="book.pdf" target="_blank" class="action-btn secondary-btn">
-                            <span>🖨️</span>
-                            Print Manual
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quick Links -->
-            <div class="manual-quick-links">
-                <h3>Quick Navigation</h3>
-                <div class="quick-links-grid">
-                    <a href="https://www.hardwarepasale.com/products.html" class="quick-link">
-                        <div class="link-icon">🔩</div>
-                        <span>Pipes & Plumbing</span>
-                    </a>
-                    <a href="https://www.hardwarepasale.com/products.html" class="quick-link">
-                        <div class="link-icon">🚿</div>
-                        <span>Bathroom & Sanitary</span>
-                    </a>
-                    <a href="https://www.hardwarepasale.com/products.html" class="quick-link">
-                        <div class="link-icon">🎨</div>
-                        <span>Paints & Waterproof</span>
-                    </a>
-                    <a href="https://www.hardwarepasale.com/products.html" class="quick-link">
-                        <div class="link-icon">🔄</div>
-                        <span>Pumps & Motors</span>
-                    </a>
-                    <a href="https://www.hardwarepasale.com/products.html" class="quick-link">
-                        <div class="link-icon">🔨</div>
-                        <span>Tools & Hardware</span>
-                    </a>
+                <div class="manual-info">
+                    <h3>What's Inside</h3>
+                    <ul>
+                        <li>🔧 Installation Guides</li>
+                        <li>⚡ Technical Specs</li>
+                        <li>🛡️ Safety Guidelines</li>
+                        <li>🔄 Maintenance Tips</li>
+                    </ul>
+                    <a href="book.pdf" target="_blank" class="download-btn">📥 Download PDF</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer id="contact">
         <div class="container">
@@ -230,8 +117,8 @@
                     <ul>
                         <li>Pipes & Plumbing</li>
                         <li>Bathroom & Sanitary</li>
-                        <li>Paints & waterproof</li>
-                        <li>Basin and Moter/pumps</li>
+                        <li>Paints & Waterproof</li>
+                        <li>Basin and Motor/Pumps</li>
                         <li>Tools & Hardware</li>
                     </ul>
                 </div>
@@ -251,5 +138,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
