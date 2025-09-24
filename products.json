@@ -146,8 +146,9 @@
       "name": "Aspiro Black Shower Set",
       "category": "packages and set",
       "price": "",
-      "description": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540595/WhatsApp_Image_2025-09-21_at_7.01.47_PM_aipinu.jpg",
-      "icon": "neolina.jpeg"
+      "description":"",
+      "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540595/WhatsApp_Image_2025-09-21_at_7.01.47_PM_aipinu.jpg"
+
     },
     {
       "id": 18,
