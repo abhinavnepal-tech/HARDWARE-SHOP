@@ -928,6 +928,24 @@
             margin-bottom: 1rem;
             color: var(--text-primary);
         }
+
+        /* Test Change Styling */
+        .test-change {
+            color: #ff0000 !important;
+            font-size: 3rem !important;
+            font-weight: 900 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -938,10 +956,10 @@
                 <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
                 <nav id="nav">
                     <ul>
-                        <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
-                        <li><a href="#" onclick="showPage('products')" class="nav-link">Products</a></li>
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="products.html" onclick="showPage('products')" class="nav-link">Products</a></li>
                         <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
-                        <li><a href="#" onclick="showPage('videos')" class="nav-link">Product Videos</a></li>
+                        <li><a href="video.html" class="nav-link">Product Videos</a></li>
                     </ul>
                 </nav>
             </div>
@@ -964,17 +982,11 @@
             <div class="container">
                 <div class="brand-content">
                     <div class="brand-text">
-                        <h1 style="color:red;">TESTING CHANGE</h1>
+                        <h1 class="test-change">TESTING CHANGE - FILE IS UPDATED!</h1>
 
                         <h2>About HardwarePasale</h2>
                         <p>For over 15 years, HardwarePasale has been serving contractors, builders, and DIY enthusiasts with premium quality hardware supplies. We pride ourselves on offering competitive prices, expert advice, and reliable service.</p>
                         <p>From small home repairs to large construction projects, we have everything you need under one roof. Our experienced team is always ready to help you find the right tools and materials for your project.</p>
-                    </div>
-                    <div class="brand-visual">
-                        <video width="100%" autoplay muted loop playsinline>
-                            <source src="intro video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
                     </div>
                 </div>
             </div>
@@ -1253,10 +1265,14 @@
             // Show selected page
             document.getElementById(pageId).classList.add('active');
             
-            // Update navigation active state
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
+            // Update navigation active state - only for JavaScript navigation
+            if (event && event.target) {
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => link.classList.remove('active'));
+                if (event.target.onclick) {
+                    event.target.classList.add('active');
+                }
+            }
             
             // Close mobile menu if open
             const nav = document.getElementById('nav');
@@ -1328,3 +1344,8 @@
     </script>
 </body>
 </html>
+                    <div class="brand-visual">
+                        <video width="100%" autoplay muted loop playsinline>
+                            <source src="intro video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>

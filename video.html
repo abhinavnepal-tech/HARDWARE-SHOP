@@ -201,10 +201,10 @@
                 <div class="logo">🔨 HardwarePasale</div>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="videos.html" class="active">Videos</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="index.html" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                        <li><a href="products.html" onclick="showPage('products')" class="nav-link">Products</a></li>
+                        <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                        <li><a href="video.html" onclick="showPage('videos')" class="nav-link">Product Videos</a></li>
                     </ul>
                 </nav>
             </div>
@@ -275,7 +275,7 @@
     </footer>
 
     <script>
-        // Sample video data with YouTube URLs including Shorts
+        
         let videosData = [
             {
                 id: 1,
