@@ -2,7 +2,7 @@
   "products": [
     
     {
-      "id": 21,
+      "id": 1,
       "name": "Optra Counter Top Wash Basin",
       "category": "basin",
       "price": "NPR 10680",
@@ -12,7 +12,7 @@
     
     
     {
-      "id": 22,
+      "id": 2,
       "name": "Cedar",
       "category": "basin",
       "price": "NPR 8080",
@@ -21,7 +21,7 @@
     }
     ,
     {
-      "id": 23,
+      "id": 3,
       "name": "Median",
       "category": "basin",
       "price": "NPR 7700",
@@ -30,7 +30,7 @@
     }
     ,
     {
-      "id": 24,
+      "id": 4,
       "name": "Solitaire",
       "category": "basin",
       "price": "NPR 5030",
@@ -39,7 +39,7 @@
     }
     ,
     {
-      "id": 25,
+      "id": 5,
       "name": "Alto",
       "category": "basin",
       "price": "NPR 4350",
@@ -47,7 +47,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756900545/basin5_ylw8w5.jpg"
     },
      {
-      "id": 26,
+      "id": 6,
       "name": "4 Way Integrated Shower Console - Piano LED set",
       "category": "bathroom/sanitary",
       "price":"NPR 35000",
@@ -56,7 +56,7 @@
     }
     ,
      {
-      "id": 27,
+      "id": 7,
       "name": "3 Outlet Exposed Bath Shower Mixer",
       "category": "bathroom/sanitary",
       "price":"NPR 28500",
@@ -64,7 +64,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901120/shower2_ipmoiz.jpg"
     },
      {
-      "id": 28,
+      "id": 8,
       "name": "Exposed Rain Shower",
       "category": "bathroom/sanitary",
       "price":"NPR 21990",
@@ -72,7 +72,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901120/shower3_tiadwq.png"
     },
      {
-      "id": 29,
+      "id": 9,
       "name": "OH Shower 250-mm round (PGD)",
       "category": "bathroom/sanitary",
       "price":"NPR 11900",
@@ -80,7 +80,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901120/shower4_fuaxgu.jpg"
     },
    {
-  "id": 30,
+  "id": 10,
   "name": "Ultra thin SS Square Rain shower 300mm",
   "category": "bathroom/sanitary",
   "price": "NPR 7900",
@@ -91,7 +91,7 @@
 
     ,
      {
-      "id": 31,
+      "id": 11,
       "name": "EBELLO SHOWER ENCLOSURE SET",
       "category": "set",
       "price":"NPR 47000",
@@ -100,7 +100,7 @@
     }
     ,
      {
-      "id": 32,
+      "id": 12,
       "name": "Roman Holiday Bathroom Theme",
       "category": "set",
       "price":"",
@@ -108,7 +108,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901121/theme3_uxdle3.webp"
     },
     {
-      "id": 10,
+      "id": 13,
       "name": "4 Inch ply cutting blade",
       "category": "tools",
       "price":"",
@@ -117,7 +117,7 @@
     },
     
     {
-      "id": 13,
+      "id": 14,
       "name": "Basin Mixers",
       "category": "basin",
       "price": "",
@@ -125,7 +125,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540199/WhatsApp_Image_2025-09-21_at_6.50.50_PM_dzj3cj.jpg"
     },
     {
-      "id": 14,
+      "id": 15,
       "name": "Display set",
       "category": "packages and set",
       "price": "",
@@ -133,7 +133,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540199/WhatsApp_Image_2025-09-21_at_6.51.21_PM_ozm7jh.jpg"
     },
     {
-      "id": 15,
+      "id": 16,
       "name": "Aspiro Golden Shower Set",
       "category": "packages and set",
       "price": "",
@@ -174,7 +174,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758540907/WhatsApp_Image_2025-09-21_at_7.03.19_PM_vzjcv3.jpg"
     }
        , {
-      "id": 10,
+      "id": 21,
       "name": "Cleaning set",
       "category": "bathroom/sanitary",
       "price":"",
@@ -183,7 +183,7 @@
     },
     
     {
-      "id": 13,
+      "id":22,
       "name": "LED Mirror",
       "category": "basin",
       "price": "",
@@ -191,7 +191,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541025/WhatsApp_Image_2025-09-21_at_7.04.15_PM_hosk0b.jpg"
     },
     {
-      "id": 14,
+      "id": 23,
       "name": "Kitchen rack",
       "category": "packages and set",
       "price": "",
@@ -199,7 +199,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541333/WhatsApp_Image_2025-09-21_at_7.41.18_PM_1_n73tjd.jpg"
     },
     {
-      "id": 15,
+      "id": 24,
       "name": "Drain Covers",
       "category": "cleaning items",
       "price": "",
@@ -208,7 +208,7 @@
     },
   
     {
-      "id": 17,
+      "id": 25,
       "name": "Sink Organizers",
       "category": "bathroom/sanitary",
       "price": "",
@@ -216,7 +216,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541213/WhatsApp_Image_2025-09-21_at_7.40.16_PM_lqbbvc.jpg"
     },
     {
-      "id": 18,
+      "id": 26,
       "name": "water pumps",
       "category": "tools",
       "price": "",
@@ -224,7 +224,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541612/WhatsApp_Image_2025-09-21_at_7.46.33_PM_gq49v5.jpg"
     },
     {
-      "id": 19,
+      "id": 27,
       "name": "Brass Valve with Lock",
       "category": "tools",
       "price": "",
@@ -232,14 +232,14 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541600/WhatsApp_Image_2025-09-21_at_7.42.28_PM_cdxic6.jpg"
     },
     {
-      "id": 20,
+      "id": 30,
       "name": "wheel barrow",
       "category": "tools",
       "price": "",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541593/WhatsApp_Image_2025-09-21_at_7.47.25_PM_pixsr6.jpg"
     }  ,  {
-      "id": 10,
+      "id": 31,
       "name": "Grinding disc set",
       "category": "packages and set",
       "price":"",
@@ -248,7 +248,7 @@
     },
     
     {
-      "id": 13,
+      "id": 32,
       "name": "Pedestal Sink Set 1",
       "category": "basin",
       "price": "",
@@ -256,7 +256,7 @@
       "icon": "tap and tile.jpeg"
     },
     {
-      "id": 14,
+      "id": 33,
       "name": "Pedestal Sink Set 2",
       "category": "basin",
       "price": "",
@@ -264,7 +264,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758541569/WhatsApp_Image_2025-09-21_at_7.50.36_PM_tq0rm2.jpg"
     },
     {
-      "id": 15,
+      "id": 34,
       "name": "Faucet Board",
       "category": "bathroom/sanitary",
       "price": "",
@@ -273,7 +273,7 @@
     },
   
     {
-      "id": 17,
+      "id": 35,
       "name": "Lock and Hardware panel",
       "category": "bathroom/sanitary",
       "price": "",
@@ -281,7 +281,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542050/WhatsApp_Image_2025-09-21_at_7.57.32_PM_odynop.jpg"
     },
     {
-      "id": 18,
+      "id": 36,
       "name": "Roff Starlike",
       "category": "Maintenance&Waterproof",
       "price": "",
@@ -289,7 +289,7 @@
       "icon": "roffstar.jpeg"
     },
     {
-      "id": 19,
+      "id": 37,
       "name": "Fevical Heatx",
       "category": "paints",
       "price": "",
@@ -297,14 +297,14 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542121/WhatsApp_Image_2025-09-21_at_7.57.33_PM_zhrk9v.jpg"
     },
     {
-      "id": 20,
+      "id": 38,
       "name": "Paint shield",
       "category": "paints",
       "price": "",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542112/WhatsApp_Image_2025-09-21_at_7.57.34_PM_alkmtq.jpg"
     } ,   {
-      "id": 10,
+      "id": 39,
       "name": "Berger Brolac",
       "category": "paints",
       "price":"",
@@ -313,7 +313,7 @@
     },
     
     {
-      "id": 13,
+      "id": 40,
       "name": "Fevial Marine Adhesive",
       "category": "paints",
       "price": "",
@@ -321,7 +321,7 @@
       "icon": ""
     },
     {
-      "id": 14,
+      "id": 41,
       "name": "Coloured Basin",
       "category": "basin",
       "price": "",
@@ -329,7 +329,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542421/WhatsApp_Image_2025-09-21_at_7.57.46_PM_sockxg.jpg"
     },
     {
-      "id": 15,
+      "id": 42,
       "name": "Golden-border Basin",
       "category": "basin",
       "price": "",
@@ -338,7 +338,7 @@
     },
   
     {
-      "id": 17,
+      "id": 43,
       "name": "Vanity Set",
       "category": "basin",
       "price": "",
@@ -346,7 +346,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542614/WhatsApp_Image_2025-09-21_at_7.57.49_PM_oycdb1.jpg"
     },
     {
-      "id": 18,
+      "id": 44,
       "name": "Decorative Mirror",
       "category": "bathroom/sanitary",
       "price": "",
@@ -354,7 +354,7 @@
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1758542631/WhatsApp_Image_2025-09-21_at_7.57.48_PM_zzk6n0.jpg"
     },
     {
-      "id": 19,
+      "id": 45,
       "name": "Vanity Cabinet with Basin",
       "category": "",
       "price": "",
