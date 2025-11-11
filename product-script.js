@@ -9,7 +9,7 @@ const fallbackProducts = {
             "id": 1,
             "name": "PVC Pipe 4 inch",
             "category": "pipes",
-            "price": "$12.99",
+            "price": "Contact for price",
             "description": "High-quality PVC pipe suitable for drainage and irrigation systems.",
             "icon": "🚿"
         },
@@ -17,7 +17,7 @@ const fallbackProducts = {
             "id": 2,
             "name": "Copper Pipe 1/2 inch",
             "category": "pipes",
-            "price": "$8.50",
+            "price": "Contact for price",
             "description": "Premium copper pipe for plumbing applications.",
             "icon": "🔧"
         }
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
 async function loadProductsData() {
     try {
         const response = await fetch('products.json');
+        if (!response.ok) {
+            throw new Error('Failed to fetch products');
+        }
         productsData = await response.json();
         console.log('Products loaded:', productsData.products.length);
     } catch (error) {
@@ -98,11 +101,10 @@ function displayProducts(products) {
             'No products found in this category';
         
         grid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-secondary);">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">🔍</div>
-                <h3>${noResultsMessage}</h3>
-                <p>Try searching with different keywords or view all products.</p>
-                ${currentSearchTerm ? `<button onclick="clearSearch()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; border: none; background: var(--primary); color: white; border-radius: 50px; cursor: pointer; transition: var(--transition);">Clear Search</button>` : ''}
+            <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">🔍 ${noResultsMessage}</h3>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">Try searching with different keywords or view all products.</p>
+                ${currentSearchTerm ? `<button onclick="clearSearch()" class="cta-button" style="margin-top: 2rem;">Clear Search</button>` : ''}
             </div>
         `;
         return;
@@ -121,21 +123,28 @@ function displayProducts(products) {
                         product.icon.includes('.webp') ||
                         product.icon.includes('cloudinary'));
         
+        // Handle empty or missing price
+        const displayPrice = product.price && product.price.trim() !== '' ? product.price : 'Contact for price';
+        
+        // Format category name for display
+        const categoryDisplay = product.category
+            .split(/[-_/]/)
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+        
         productCard.innerHTML = `
+            <div class="category-badge">${categoryDisplay}</div>
             <div class="product-image">
                 ${isImage ? 
                     `<img src="${product.icon}" alt="${product.name}" 
-                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                     <span style="display: none; font-size: 4rem;">📦</span>` : 
-                    `<span style="font-size: 4rem;">${product.icon}</span>`
+                          onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size: 4rem;\\'>📦</div>';">` : 
+                    `<div style="font-size: 4rem; padding: 2rem;">${product.icon || '📦'}</div>`
                 }
             </div>
-            <div class="product-info">
-                <div class="product-name">${product.name}</div>
-                <div class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1).replace(/[-_]/g, ' ')}</div>
-                <div class="product-price">${product.price}</div>
-                <div class="product-description">${product.description}</div>
-            </div>
+            <h3>${product.name}</h3>
+            ${product.description ? `<p>${product.description}</p>` : ''}
+            <div class="product-price">${displayPrice}</div>
+            <button class="contact-btn" onclick="contactUs('${product.name}')">Contact Us</button>
         `;
         
         grid.appendChild(productCard);
@@ -172,6 +181,19 @@ function filterProducts(category) {
     event.target.classList.add('active');
     
     loadProducts();
+}
+
+// Contact function
+function contactUs(productName) {
+    // Scroll to footer contact section
+    const footer = document.querySelector('footer');
+    if (footer) {
+        footer.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // You can also open email client or WhatsApp
+    // window.location.href = `mailto:hardwarepasale@gmail.com?subject=Inquiry about ${productName}`;
+    // Or WhatsApp: window.open(`https://wa.me/9779849940823?text=I'm interested in ${productName}`, '_blank');
 }
 
 // Clear search
@@ -244,10 +266,7 @@ function initializeScrollEffects() {
     });
 
     // Observe elements for animations
-    document.querySelectorAll('.service-card, .product-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    document.querySelectorAll('.product-card').forEach(card => {
         observer.observe(card);
     });
 }

@@ -8,64 +8,95 @@
     <link rel="icon" type="image/png" href="hardfav.png">
     <style>
         /* Additional styles for video page */
-
         .video-gallery {
-            padding: 140px 0 120px;
-            background: var(--bg-primary);
+            padding: 80px 0 120px;
+            background: linear-gradient(135deg, #1a1a2e 0%, rgba(22, 33, 62, 0.8) 50%, #0f3460 100%);
+            position: relative;
+        }
+
+        .video-gallery::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(233, 69, 96, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(242, 113, 33, 0.05) 0%, transparent 50%);
+        }
+
+        .video-gallery > .container {
+            position: relative;
+            z-index: 2;
         }
 
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .video-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
-            border: 1px solid var(--border-secondary);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            position: relative;
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e94560, #f27121, #e94560);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .video-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--border-primary);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 50px rgba(233, 69, 96, 0.3);
+            border-color: rgba(233, 69, 96, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .video-card:hover::before {
+            opacity: 1;
         }
 
         .video-thumbnail {
             width: 100%;
-            height: 250px;
-            background: var(--bg-tertiary);
+            height: 280px;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .video-thumbnail img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .video-thumbnail iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.1);
         }
 
         .video-play-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             cursor: pointer;
             z-index: 2;
         }
@@ -75,37 +106,77 @@
         }
 
         .play-button {
-            font-size: 3rem;
-            color: var(--text-primary);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e94560, #f27121);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(233, 69, 96, 0.5);
+        }
+
+        .video-play-overlay:hover .play-button {
+            transform: scale(1.15);
+            box-shadow: 0 12px 48px rgba(233, 69, 96, 0.7);
+        }
+
+        .shorts-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 3;
+            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.5);
         }
 
         .video-info {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .video-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            color: white;
+            background: linear-gradient(135deg, #ffffff 0%, #e94560 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.4;
         }
 
         .video-category {
-            color: var(--primary);
-            font-size: 0.875rem;
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(242, 113, 33, 0.2) 100%);
+            color: #e94560;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
             font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
         }
 
         .video-description {
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.85);
             font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            min-height: 40px;
         }
 
         .video-meta {
@@ -113,16 +184,19 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.875rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .video-modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             padding: 2rem;
+            animation: fadeIn 0.3s ease;
         }
 
         .video-modal.active {
@@ -136,51 +210,66 @@
             max-height: 90vh;
             position: relative;
             background: #000;
-            border-radius: var(--border-radius);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
         }
 
         .modal-video {
             width: 100%;
             height: auto;
-            min-height: 400px;
-            border-radius: var(--border-radius);
+        }
+
+        .modal-video iframe {
+            width: 100%;
+            height: 80vh;
+            max-height: 720px;
+            border: none;
         }
 
         .modal-close {
             position: absolute;
-            top: -3rem;
+            top: -3.5rem;
             right: 0;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 2rem;
+            background: rgba(233, 69, 96, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(233, 69, 96, 0.5);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
-            padding: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 10;
         }
 
-        .youtube-embed {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        .modal-close:hover {
+            background: linear-gradient(135deg, #e94560, #f27121);
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 8px 24px rgba(233, 69, 96, 0.5);
         }
 
-        .youtube-thumbnail {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-
-        .youtube-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @media (max-width: 768px) {
             .videos-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .video-thumbnail {
+                height: 220px;
+            }
+
+            .video-info {
+                padding: 1.5rem;
             }
 
             .modal-content {
@@ -188,8 +277,66 @@
                 max-height: 80vh;
             }
 
-            .modal-video {
-                min-height: 250px;
+            .modal-video iframe {
+                height: 60vh;
+            }
+
+            .modal-close {
+                top: -2.5rem;
+                width: 40px;
+                height: 40px;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 101;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(135deg, #e94560, #f27121);
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+                border-left: 1px solid rgba(233, 69, 96, 0.2);
+                z-index: 100;
+            }
+
+            nav ul.active {
+                right: 0;
             }
         }
     </style>
@@ -197,34 +344,41 @@
 <body>
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">🔨 HardwarePasale</div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" onclick="showPage('home')" class="nav-link active">Home</a></li>
-                        <li><a href="products.html" onclick="showPage('products')" class="nav-link">Products</a></li>
-                        <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
-                        <li><a href="video.html" onclick="showPage('videos')" class="nav-link">Product Videos</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="hardfav.png" alt="HardwarePasale Logo" style="height: 60px;">
+                </a>
+                <div class="mobile-menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="video.html" class="active">Product Videos</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <div class="page-header">
         <div class="container">
             <h1>Product Videos</h1>
-            <p>Upload and showcase product demonstration videos</p>
+            <p>Watch our product demonstrations and installation guides</p>
         </div>
     </div>
 
     <section class="video-gallery">
         <div class="container">
-            <h2 style="text-align: center; font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Featured Videos</h2>
-            <p style="text-align: center; color: var(--text-secondary); font-size: 1.1rem;">Watch product demonstrations and tutorials</p>
+            <h2 style="text-align: center; font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, #ffffff 0%, #e94560 50%, #f27121 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Featured Videos</h2>
+            <p style="text-align: center; color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; margin-bottom: 3rem;">Watch product demonstrations and tutorials</p>
             
             <div class="videos-grid" id="videosGrid">
-                <!-- Videos will be loaded here -->
+                <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">Loading videos...</p>
+                </div>
             </div>
         </div>
     </section>
@@ -275,31 +429,31 @@
     </footer>
 
     <script>
-        
+        // Video data
         let videosData = [
             {
                 id: 1,
                 title: "All tools in our shop",
                 category: "tools",
-                description: "",
+                description: "Browse through our complete collection of hardware tools and equipment",
                 videoUrl: "https://www.youtube.com/shorts/-B1o5W_z-5M",
                 uploadDate: "2024-02-01",
-                duration: "0:60"
+                duration: "1:00"
             },
             {
                 id: 2,
                 title: "🔧 Wall-mounted dual shower setup",
-                category: "pipes/plumbing",
-                description: "",
+                category: "plumbing",
+                description: "Professional installation guide for dual shower systems",
                 videoUrl: "https://www.youtube.com/shorts/BcldoW_dfZg",
                 uploadDate: "2024-01-15",
                 duration: "0:45"
             },
             {
                 id: 3,
-                title: "Paints",
+                title: "Paints Collection",
                 category: "paints",
-                description: "",
+                description: "Explore our wide range of quality paints and finishes",
                 videoUrl: "https://www.youtube.com/shorts/JogIYO8W4mg",
                 uploadDate: "2024-01-05",
                 duration: "0:30"
@@ -307,64 +461,62 @@
             {
                 id: 4,
                 title: "How we make custom paints🎨",
-                category: "motors/pumps",
-                description:"",
-                videoUrl: "https://www.youtube.com/shorts/-B1o5W_z-5M",
+                category: "paints",
+                description: "Watch our custom paint mixing process for the perfect color",
+                videoUrl: "https://www.youtube.com/shorts/GK2eJ9gdq7Y",
                 uploadDate: "2024-01-20",
                 duration: "0:55"
             },
             {
                 id: 5,
                 title: "Commode and shower set",
-                category: "tools/hardware",
-                description: "",
+                category: "bathroom",
+                description: "Complete bathroom fixtures and installation showcase",
                 videoUrl: "https://www.youtube.com/shorts/Z3v_AKa6s-Y",
                 uploadDate: "2024-01-25",
                 duration: "0:45"
             },
-                {
+            {
                 id: 6,
                 title: "Pipes and Hardwares",
-                category: "tools/hardware",
-                description: "",
+                category: "plumbing",
+                description: "Comprehensive overview of our plumbing supplies and fittings",
                 videoUrl: "https://www.youtube.com/shorts/kwrerbR6hb4",
                 uploadDate: "2024-01-25",
                 duration: "1:30"
             },
-                   {
+            {
                 id: 7,
                 title: "Household Utensils",
-                category: "tools/hardware",
-                description:"",
-                videoUrl: "https://youtube.com/shorts/8sehL1LXn4Y?feature=share",
+                category: "household",
+                description: "Quality household items and accessories for your home",
+                videoUrl: "https://youtube.com/shorts/8sehL1LXn4Y",
                 uploadDate: "2024-01-25",
                 duration: "0:20"
             },
-                   {
+            {
                 id: 8,
                 title: "Hindware and Bathroom",
-                category: "tools/hardware",
-                description:"",
-                videoUrl: "https://youtube.com/shorts/fGt7FQu6tFI?feature=share",
+                category: "bathroom",
+                description: "Premium Hindware bathroom products and accessories",
+                videoUrl: "https://youtube.com/shorts/fGt7FQu6tFI",
                 uploadDate: "2024-01-25",
                 duration: "0:31"
-            },
-      
+            }
         ];
 
-        // Utility functions for YouTube
+        // YouTube utility functions
         function getYouTubeVideoId(url) {
-            // Enhanced regex to handle YouTube Shorts URLs
             const patterns = [
+                /(?:youtube\.com\/shorts\/)([^"&?\/\s]{11})/i,
                 /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i,
-                /youtube\.com\/shorts\/([^"&?\/\s]{11})/i,
-                /youtube\.com\/watch\?v=([^"&?\/\s]{11})/i,
-                /youtu\.be\/([^"&?\/\s]{11})/i
+                /(?:youtube\.com\/watch\?v=)([^"&?\/\s]{11})/i,
+                /(?:youtu\.be\/)([^"&?\/\s]{11})/i
             ];
             
             for (let pattern of patterns) {
                 const match = url.match(pattern);
-                if (match) return match[1];
+                if (match && match[1]) return match[1];
             }
             return null;
         }
@@ -373,20 +525,16 @@
             return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
         }
 
-        function getYouTubeEmbedUrl(videoId, isShort = false) {
-            if (isShort) {
-                // For shorts, use a different approach
-                return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1`;
-            }
-            return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        }
-
-        function isYouTubeUrl(url) {
-            return url.includes('youtube.com') || url.includes('youtu.be');
-        }
-
         function isYouTubeShort(url) {
             return url.includes('youtube.com/shorts/') || url.includes('/shorts/');
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         }
 
         // Initialize page
@@ -400,36 +548,43 @@
             const videosGrid = document.getElementById('videosGrid');
             videosGrid.innerHTML = '';
 
-            videosData.forEach(video => {
+            if (videosData.length === 0) {
+                videosGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <h3 style="color: rgba(255, 255, 255, 0.9); font-size: 1.5rem; margin-bottom: 1rem;">No videos available</h3>
+                        <p style="color: rgba(255, 255, 255, 0.7);">Check back soon for product demonstrations and tutorials!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            videosData.forEach((video, index) => {
                 const videoCard = document.createElement('div');
                 videoCard.className = 'video-card';
+                videoCard.style.animationDelay = `${index * 0.1}s`;
                 
-                const isYT = isYouTubeUrl(video.videoUrl);
+                const videoId = getYouTubeVideoId(video.videoUrl);
                 const isShort = isYouTubeShort(video.videoUrl);
-                const videoId = isYT ? getYouTubeVideoId(video.videoUrl) : null;
-                const thumbnailUrl = isYT ? getYouTubeThumbnail(videoId) : video.thumbnail;
+                const thumbnailUrl = videoId ? getYouTubeThumbnail(videoId) : '';
                 
                 videoCard.innerHTML = `
-                    <div class="video-thumbnail">
-                        ${isYT ? 
-                            `<div class="youtube-thumbnail">
-                                <img src="${thumbnailUrl}" alt="${video.title}" onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">
-                                ${isShort ? '<div style="position: absolute; top: 10px; right: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: bold;">SHORT</div>' : ''}
-                            </div>` :
-                            `<video preload="metadata" muted>
-                                <source src="${video.videoUrl}" type="video/mp4">
-                            </video>`
+                    <div class="video-thumbnail" onclick="openVideoModal('${video.videoUrl}', ${isShort}, '${videoId}')">
+                        ${thumbnailUrl ? 
+                            `<img src="${thumbnailUrl}" alt="${video.title}" 
+                                  onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">` :
+                            `<div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3rem;">🎥</div>`
                         }
-                        <div class="video-play-overlay" onclick="openVideoModal('${video.videoUrl}', ${isYT}, ${isShort})">
-                            <div class="play-button">▶️</div>
+                        ${isShort ? '<div class="shorts-badge">SHORTS</div>' : ''}
+                        <div class="video-play-overlay">
+                            <div class="play-button">▶</div>
                         </div>
                     </div>
                     <div class="video-info">
-                        <div class="video-title">${video.title}</div>
                         <div class="video-category">${video.category.replace(/[-_\/]/g, ' ')}</div>
-                        <div class="video-description">${video.description}</div>
+                        <div class="video-title">${video.title}</div>
+                        ${video.description ? `<div class="video-description">${video.description}</div>` : ''}
                         <div class="video-meta">
-                            <span>📅 ${new Date(video.uploadDate).toLocaleDateString()}</span>
+                            <span>📅 ${new Date(video.uploadDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                             <span>⏱️ ${video.duration}</span>
                         </div>
                     </div>
@@ -452,7 +607,6 @@
                 }
             });
 
-            // Close modal on escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && modal.classList.contains('active')) {
                     closeVideoModal();
@@ -461,37 +615,55 @@
         }
 
         // Open video modal
-        function openVideoModal(videoUrl, isYouTube = false, isShort = false) {
+        function openVideoModal(videoUrl, isShort = false, videoId = null) {
             const modal = document.getElementById('videoModal');
             const modalVideo = document.getElementById('modalVideo');
+            const modalContent = modal.querySelector('.modal-content');
             
-            if (isYouTube) {
-                const videoId = getYouTubeVideoId(videoUrl);
-                const embedUrl = getYouTubeEmbedUrl(videoId, isShort);
+            if (!videoId) {
+                videoId = getYouTubeVideoId(videoUrl);
+            }
+            
+            if (videoId) {
+                const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
                 
-                // Adjust iframe size for shorts
-                const iframeWidth = isShort ? "400" : "800";
-                const iframeHeight = isShort ? "600" : "450";
-                
-                modalVideo.innerHTML = `<iframe width="${iframeWidth}" height="${iframeHeight}" src="${embedUrl}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`;
-                
-                // Adjust modal content styling for shorts
-                const modalContent = modal.querySelector('.modal-content');
                 if (isShort) {
-                    modalContent.style.maxWidth = '450px';
-                    modalContent.style.aspectRatio = 'auto';
+                    modalContent.style.maxWidth = '500px';
+                    modalVideo.innerHTML = `
+                        <iframe 
+                            width="100%" 
+                            height="700" 
+                            src="${embedUrl}" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    `;
                 } else {
                     modalContent.style.maxWidth = '90vw';
-                    modalContent.style.aspectRatio = 'auto';
+                    modalVideo.innerHTML = `
+                        <iframe 
+                            width="100%" 
+                            height="720" 
+                            src="${embedUrl}" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    `;
                 }
             } else {
-                modalVideo.innerHTML = `<video controls autoplay style="width: 100%; height: auto;">
-                    <source src="${videoUrl}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>`;
+                modalContent.style.maxWidth = '90vw';
+                modalVideo.innerHTML = `
+                    <video controls autoplay style="width: 100%; height: auto; max-height: 80vh;">
+                        <source src="${videoUrl}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
             }
             
             modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         // Close video modal
@@ -500,27 +672,9 @@
             const modalVideo = document.getElementById('modalVideo');
             
             modal.classList.remove('active');
-            modalVideo.innerHTML = ''; // Clear the content to stop video playback
+            modalVideo.innerHTML = '';
+            document.body.style.overflow = 'auto';
         }
-
-        // Add video function (for future use with admin panel)
-        function addVideo(title, category, description, videoUrl, duration = "0:00") {
-            const newVideo = {
-                id: Date.now(),
-                title: title,
-                category: category,
-                description: description,
-                videoUrl: videoUrl,
-                uploadDate: new Date().toISOString().split('T')[0],
-                duration: duration
-            };
-            
-            videosData.unshift(newVideo);
-            loadVideos();
-        }
-
-        // Example of how to add a new video (can be called from admin interface)
-        // addVideo("New Tutorial", "tools", "Description here", "https://www.youtube.com/watch?v=VIDEO_ID", "5:30");
     </script>
 </body>
 </html>

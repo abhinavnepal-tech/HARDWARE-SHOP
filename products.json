@@ -5,7 +5,6 @@
       "id": 1,
       "name": "Optra Counter Top Wash Basin",
       "category": "basin",
-      "price": "NPR 10680",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756900128/basin1_tvuxes.png"
     },
@@ -15,7 +14,6 @@
       "id": 2,
       "name": "Cedar",
       "category": "basin",
-      "price": "NPR 8080",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756900127/basin2_inqn7j.jpg"
     }
@@ -24,7 +22,6 @@
       "id": 3,
       "name": "Median",
       "category": "basin",
-      "price": "NPR 7700",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756900127/basin3_tzoxxp.jpg"
     }
@@ -33,7 +30,6 @@
       "id": 4,
       "name": "Solitaire",
       "category": "basin",
-      "price": "NPR 5030",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756900128/basin4_jksttk.jpg"
     }
@@ -42,7 +38,6 @@
       "id": 5,
       "name": "Alto",
       "category": "basin",
-      "price": "NPR 4350",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756900545/basin5_ylw8w5.jpg"
     },
@@ -50,7 +45,6 @@
       "id": 6,
       "name": "4 Way Integrated Shower Console - Piano LED set",
       "category": "bathroom/sanitary",
-      "price":"NPR 35000",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901120/shower1_vucwsy.png"
     }
@@ -59,7 +53,6 @@
       "id": 7,
       "name": "3 Outlet Exposed Bath Shower Mixer",
       "category": "bathroom/sanitary",
-      "price":"NPR 28500",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901120/shower2_ipmoiz.jpg"
     },
@@ -67,7 +60,6 @@
       "id": 8,
       "name": "Exposed Rain Shower",
       "category": "bathroom/sanitary",
-      "price":"NPR 21990",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901120/shower3_tiadwq.png"
     },
@@ -75,7 +67,6 @@
       "id": 9,
       "name": "OH Shower 250-mm round (PGD)",
       "category": "bathroom/sanitary",
-      "price":"NPR 11900",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901120/shower4_fuaxgu.jpg"
     },
@@ -83,7 +74,6 @@
   "id": 10,
   "name": "Ultra thin SS Square Rain shower 300mm",
   "category": "bathroom/sanitary",
-  "price": "NPR 7900",
   "description": "",
   "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756888500/shower5_jtspxr.png"
 
@@ -94,7 +84,6 @@
       "id": 11,
       "name": "EBELLO SHOWER ENCLOSURE SET",
       "category": "set",
-      "price":"NPR 47000",
       "description": "",
       "icon": "https://res.cloudinary.com/dk5i4cz1y/image/upload/v1756901121/showerset_yr60la.jpg"
     }
