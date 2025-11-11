@@ -5,1115 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HardwarePasale - Home</title>
     <link rel="icon" type="image/png" href="hardfav.png">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap');
-
-        :root {
-            --primary: #6366f1;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --danger: #ef4444;
-            
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-tertiary: #1a1a2e;
-            --bg-card: #1e1e2e;
-            --bg-glass: rgba(30, 30, 46, 0.8);
-            
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            
-            --border-primary: rgba(99, 102, 241, 0.3);
-            --border-secondary: rgba(255, 255, 255, 0.1);
-            
-            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
-            
-            --border-radius: 16px;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-secondary);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: var(--transition);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.75rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 12px 20px;
-            border-radius: 12px;
-            transition: var(--transition);
-            border: 1px solid transparent;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: var(--text-primary);
-            border-color: var(--border-primary);
-            background: rgba(99, 102, 241, 0.1);
-        }
-
-        nav a.active {
-            color: var(--text-primary);
-            border-color: var(--border-primary);
-            background: rgba(99, 102, 241, 0.15);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            padding: 140px 0 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.375rem;
-            margin-bottom: 3rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--text-primary);
-            padding: 20px 40px;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-size: 1.125rem;
-            font-weight: 700;
-            transition: var(--transition);
-            box-shadow: var(--shadow-card);
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        /* Brand Info */
-        .brand-info {
-            padding: 120px 0;
-            background: var(--bg-secondary);
-        }
-
-        .brand-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .brand-text h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .brand-text p {
-            font-size: 1.125rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-        }
-
-        .brand-visual {
-            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-card));
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-        }
-
-        .brand-visual video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Services */
-        .services {
-            padding: 120px 0;
-            background: var(--bg-tertiary);
-        }
-
-        .services h2 {
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 4rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-card);
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid var(--border-secondary);
-            position: relative;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--border-primary);
-        }
-
-        .service-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.15);
-        }
-
-        .service-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.375rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            color: var(--text-primary);
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Manual Section */
-        .manual-section {
-            padding: 120px 0;
-            background: var(--bg-secondary);
-            text-align: center;
-        }
-
-        .manual-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent), #eab308);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .manual-section > p {
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1.125rem;
-        }
-
-        .manual-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .pdf-viewer {
-            background: var(--bg-card);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            border: 1px solid var(--border-secondary);
-        }
-
-        .pdf-viewer embed {
-            width: 100%;
-            height: 500px;
-        }
-
-        .manual-info {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-card);
-            border: 1px solid var(--border-secondary);
-            text-align: left;
-        }
-
-        .manual-info h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .manual-info ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .manual-info li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-        }
-
-        .download-btn {
-            background: linear-gradient(135deg, var(--accent), #eab308);
-            color: var(--bg-primary);
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--bg-tertiary), #0f0f1a);
-            padding: 4rem 0 2rem;
-            border-top: 1px solid var(--border-secondary);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .footer-section p,
-        .footer-section li {
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li:hover {
-            color: var(--text-primary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border-secondary);
-            padding-top: 1rem;
-            text-align: center;
-            color: var(--text-muted);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 16px;
-            }
-            
-            .hero {
-                padding: 100px 0 80px;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .brand-info,
-            .services,
-            .manual-section {
-                padding: 80px 0;
-            }
-            
-            .brand-content {
-                gap: 60px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg-glass);
-                backdrop-filter: blur(20px);
-                border-top: 1px solid var(--border-secondary);
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-                padding: 1rem 0;
-            }
-
-            nav li {
-                border-bottom: 1px solid var(--border-secondary);
-                width: 100%;
-            }
-
-            nav a {
-                display: block;
-                padding: 1rem;
-                text-align: center;
-                width: 100%;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .hero {
-                padding: 80px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 1.125rem;
-                margin-bottom: 2rem;
-                padding: 0 1rem;
-            }
-
-            .cta-button {
-                padding: 16px 32px;
-                font-size: 1rem;
-            }
-
-            .brand-info,
-            .services,
-            .manual-section {
-                padding: 60px 0;
-            }
-
-            .brand-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-
-            .brand-text h2 {
-                font-size: 2rem;
-            }
-
-            .brand-text p {
-                font-size: 1rem;
-            }
-
-            .services h2 {
-                font-size: 2rem;
-                margin-bottom: 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .service-card {
-                padding: 2rem;
-            }
-
-            .service-card h3 {
-                font-size: 1.25rem;
-            }
-
-            .manual-section h2 {
-                font-size: 2rem;
-            }
-
-            .manual-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .pdf-viewer embed {
-                height: 350px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 12px;
-            }
-
-            .logo {
-                font-size: 1.25rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                line-height: 1.2;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 14px 28px;
-                font-size: 0.9rem;
-            }
-
-            .brand-text h2 {
-                font-size: 1.75rem;
-            }
-
-            .services h2,
-            .manual-section h2 {
-                font-size: 1.75rem;
-            }
-
-            .service-card {
-                padding: 1.5rem;
-            }
-
-            .service-icon {
-                font-size: 3rem;
-            }
-
-            .service-card h3 {
-                font-size: 1.125rem;
-            }
-
-            .pdf-viewer embed {
-                height: 250px;
-            }
-
-            .manual-info {
-                padding: 1.5rem;
-            }
-
-            .manual-info h3 {
-                font-size: 1.25rem;
-            }
-
-            .footer-content {
-                gap: 1.5rem;
-            }
-        }
-
-        /* Page Content Sections - Initially hidden */
-        .page-content {
-            display: none;
-        }
-
-        .page-content.active {
-            display: block;
-        }
-
-        /* Products Page Styles */
-        .page-header {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            padding: 140px 0 100px;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--accent), #eab308);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .page-header p {
-            font-size: 1.375rem;
-            color: var(--text-secondary);
-        }
-
-        .search-section {
-            background: var(--bg-secondary);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .search-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            display: flex;
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            border-radius: 50px;
-            padding: 1rem;
-            border: 1px solid var(--border-secondary);
-        }
-
-        .search-box input {
-            flex: 1;
-            border: none;
-            outline: none;
-            padding: 1rem;
-            font-size: 1.125rem;
-            color: var(--text-primary);
-            background: transparent;
-        }
-
-        .search-box input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .filters {
-            padding: 3rem 0;
-            background: var(--bg-tertiary);
-        }
-
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-secondary);
-            color: var(--text-secondary);
-            padding: 16px 28px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--text-primary);
-            border-color: var(--border-primary);
-            transform: translateY(-2px);
-        }
-
-        .products-container {
-            padding: 4rem 0;
-            background: var(--bg-primary);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
-            border: 1px solid var(--border-secondary);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--border-primary);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            border-bottom: 1px solid var(--border-secondary);
-        }
-
-        .product-info {
-            padding: 2rem;
-        }
-
-        .product-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .product-category {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--bg-tertiary);
-            border-radius: 12px;
-        }
-
-        .product-price {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent), #eab308);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .product-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .contact-section {
-            padding: 120px 0;
-            background: var(--bg-secondary);
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .contact-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-card);
-            border: 1px solid var(--border-secondary);
-            transition: var(--transition);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--border-primary);
-        }
-
-        .contact-card .service-icon {
-            margin-bottom: 2rem;
-        }
-
-        .videos-section {
-            padding: 4rem 0;
-            background: var(--bg-primary);
-        }
-
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .video-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            border: 1px solid var(--border-secondary);
-            transition: var(--transition);
-        }
-
-        .video-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--border-primary);
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--text-muted);
-        }
-
-        .video-info {
-            padding: 2rem;
-        }
-
-        .video-info h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">🔨 HardwarePasale</div>
-                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
-                <nav id="nav">
-                    <ul>
-                        <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
-                        <li><a href="#" onclick="showPage('products')" class="nav-link">Products</a></li>
-                        <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
-                        <li><a href="#" onclick="showPage('videos')" class="nav-link">Product Videos</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="hardfav.png" alt="HardwarePasale Logo" style="height: 70px;">
+                </a>
+                <div class="mobile-menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="video.html">Product Videos</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- HOME PAGE -->
-    <div id="home" class="page-content active">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Your Trusted Hardware Partner</h1>
-                    <p>Quality tools, materials, and supplies for all your construction and repair needs</p>
-                    <a href="#" onclick="showPage('products')" class="cta-button">Shop Now →</a>
+    <section class="hero">
+        <div class="container">
+            <h1>Your Trusted Hardware Partner</h1>
+            <p>Quality tools, materials, and supplies for all your construction and repair needs</p>
+            <a href="products.html" class="cta-button">Shop Now →</a>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About HardwarePasale</h2>
+                    <p>For over 15 years, HardwarePasale has been serving contractors, builders, and DIY enthusiasts with premium quality hardware supplies. We pride ourselves on offering competitive prices, expert advice, and reliable service.</p>
+                    <p>From small home repairs to large construction projects, we have everything you need under one roof. Our experienced team is always ready to help you find the right tools and materials for your project.</p>
+                </div>
+                <div class="about-image">
+                    <video width="100%" autoplay muted loop playsinline style="border-radius: 20px;">
+                        <source src="intro video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="brand-info">
-            <div class="container">
-                <div class="brand-content">
-                    <div class="brand-text">
-                        <h2>About HardwarePasale</h2>
-                        <p>For over 15 years, HardwarePasale has been serving contractors, builders, and DIY enthusiasts with premium quality hardware supplies. We pride ourselves on offering competitive prices, expert advice, and reliable service.</p>
-                        <p>From small home repairs to large construction projects, we have everything you need under one roof. Our experienced team is always ready to help you find the right tools and materials for your project.</p>
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 4rem;">🚚</span>
                     </div>
-                    <div class="brand-visual">
-                        <video width="100%" autoplay muted loop playsinline>
-                            <source src="intro video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <h3>Free Delivery</h3>
+                    <p>Free delivery on orders within 10km radius. Fast and reliable service to your doorstep.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 4rem;">🛠️</span>
                     </div>
+                    <h3>Setups and Installations</h3>
+                    <p>Our experienced team provides free setups and installation of your particular product to help you easily access your required service.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 4rem;">📋</span>
+                    </div>
+                    <h3>Bulk Orders</h3>
+                    <p>Special pricing for contractors and bulk orders. Custom quotes available for large projects.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <span style="font-size: 4rem;">🔄</span>
+                    </div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day return policy on unused items. Hassle-free exchanges and refunds guaranteed.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="services">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🚚</div>
-                        <h3>Free Delivery</h3>
-                        <p>Free delivery on orders within 10km radius. Fast and reliable service to your doorstep.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🛠️</div>
-                        <h3>Setups and Installations</h3>
-                        <p>Our experienced team provides free setups and installation of your particular product to help you easily access your required service.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📋</div>
-                        <h3>Bulk Orders</h3>
-                        <p>Special pricing for contractors and bulk orders. Custom quotes available for large projects.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🔄</div>
-                        <h3>Easy Returns</h3>
-                        <p>30-day return policy on unused items. Hassle-free exchanges and refunds guaranteed.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="manual-section">
-            <div class="container">
-                <h2>📖 Product Manual & Guide</h2>
-                <p>Access our comprehensive hardware guide and installation manuals</p>
-                
-                <div class="manual-grid">
-                    <div class="pdf-viewer">
-                        <embed src="book.pdf" type="application/pdf" width="100%">
-                    </div>
-                    <div class="manual-info">
-                        <h3>What's Inside</h3>
-                        <ul>
-                            <li>🔧 Installation Guides</li>
-                            <li>⚡ Technical Specs</li>
-                            <li>🛡️ Safety Guidelines</li>
-                            <li>🔄 Maintenance Tips</li>
-                        </ul>
-                        <a href="book.pdf" target="_blank" class="download-btn">📥 Download PDF</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-  
-    <!-- CONTACT PAGE -->
-    <div id="contact" class="page-content">
-        <section class="page-header">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>Get in touch with our team for any queries or assistance</p>
-            </div>
-        </section>
-
-        <section class="contact-section">
-            <div class="container">
-                <h2>We're Here to Help</h2>
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <div class="service-icon">📍</div>
-                        <h3>Visit Our Store</h3>
-                        <p>Kaushaltar, Bhaktapur</p>
-                        <p>Open: Sun-Sat, 7:00 AM - 7:00 PM</p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="service-icon">📞</div>
-                        <h3>Call Us</h3>
-                        <p>+977 984-9940823</p>
-                        <p>For immediate assistance and quotes</p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="service-icon">✉️</div>
-                        <h3>Email Us</h3>
-                        <p>hardwarepasale@gmail.com</p>
-                        <p>We'll respond within 24 hours</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- VIDEOS PAGE -->
-    <div id="videos" class="page-content">
-        <section class="page-header">
-            <div class="container">
-                <h1>Product Videos</h1>
-                <p>Watch our product demonstrations and installation guides</p>
-            </div>
-        </section>
-
-        <section class="videos-section">
-            <div class="container">
-                <div class="videos-grid">
-                    <div class="video-card">
-                        <div class="video-placeholder">📹</div>
-                        <div class="video-info">
-                            <h3>PVC Pipe Installation Guide</h3>
-                            <p>Learn how to properly install PVC pipe for your plumbing projects.</p>
-                        </div>
-                    </div>
-                    <div class="video-card">
-                        <div class="video-placeholder">📹</div>
-                        <div class="video-info">
-                            <h3>Bathroom Fixtures Setup</h3>
-                            <p>Complete guide on setting up modern bathroom fixtures and accessories.</p>
-                        </div>
-                    </div>
-                    <div class="video-card">
-                        <div class="video-placeholder">📹</div>
-                        <div class="video-info">
-                            <h3>Paint Application Techniques</h3>
-                            <p>Professional tips for applying paint and waterproofing materials.</p>
-                        </div>
-                    </div>
-                    <div class="video-card">
-                        <div class="video-placeholder">📹</div>
-                        <div class="video-info">
-                            <h3>Tool Maintenance</h3>
-                            <p>Keep your tools in perfect condition with our maintenance guide.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -1151,86 +129,37 @@
     </footer>
 
     <script>
-        // Navigation functionality
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page-content');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update navigation active state
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Close mobile menu if open
-            const nav = document.getElementById('nav');
-            nav.classList.remove('active');
-        }
-
         // Mobile menu toggle
         function toggleMenu() {
-            const nav = document.getElementById('nav');
-            nav.classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         }
-
-        // Product filtering
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const productCards = document.querySelectorAll('.product-card');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    
-                    // Update active filter button
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Filter products
-                    productCards.forEach(card => {
-                        if (category === 'all' || card.getAttribute('data-category') === category) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Product search functionality
-            const searchInput = document.getElementById('productSearch');
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    const searchTerm = this.value.toLowerCase();
-                    
-                    productCards.forEach(card => {
-                        const productName = card.querySelector('.product-name').textContent.toLowerCase();
-                        const productCategory = card.querySelector('.product-category').textContent.toLowerCase();
-                        const productDescription = card.querySelector('.product-description').textContent.toLowerCase();
-                        
-                        if (productName.includes(searchTerm) || 
-                            productCategory.includes(searchTerm) || 
-                            productDescription.includes(searchTerm)) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            }
-        });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
-            const nav = document.getElementById('nav');
-            const toggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
             
-            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-                nav.classList.remove('active');
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
             }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
